@@ -1,0 +1,3415 @@
+[
+  {
+    "id": 1,
+    "nome": "Gustavo Silva",
+    "foto": "https://i.pravatar.cc/150?img=11",
+    "cargo": "Eng. de Software",
+    "resumo": "Especialista em front-end.",
+    "localizacao": "São Paulo - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "React",
+      "Tailwind",
+      "SQL"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Empresa X",
+        "cargo": "Analista",
+        "inicio": "2022-01",
+        "fim": "2024-06",
+        "descricao": "SPA em React."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Bacharelado",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Plataforma X",
+        "link": "https://exemplo.com",
+        "descricao": "Portal com React."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "Educação"
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Maria Silva",
+    "foto": "https://i.pravatar.cc/150?img=32",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em inclusão digital.",
+    "localizacao": "Curitiba - PR",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "Figma",
+      "Design System",
+      "Acessibilidade"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Colaboração"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Designer",
+        "inicio": "2021-03",
+        "fim": "2025-01",
+        "descricao": "Design System."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Design Digital",
+        "instituicao": "UFPR",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "App Inclusivo",
+        "link": "https://exemplo.com",
+        "descricao": "Acessibilidade AA."
+      }
+    ],
+    "certificacoes": [
+      "NN/g UX"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "João Pedro",
+    "foto": "https://i.pravatar.cc/150?img=5",
+    "cargo": "Data Scientist",
+    "resumo": "Modelos preditivos e visualização.",
+    "localizacao": "BH - MG",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Python",
+      "SQL",
+      "PowerBI"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Cientista de Dados",
+        "inicio": "2020-06",
+        "fim": "2025-10",
+        "descricao": "Forecast e dashboards."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Eng. de Computação",
+        "instituicao": "PUC Minas",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Previsão de Demanda",
+        "link": "https://exemplo.com",
+        "descricao": "LSTM + BI."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "Educação"
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Lorenzo Andolfatto",
+    "foto": "https://i.pravatar.cc/150?img=22",
+    "cargo": "Desenvolvedor Full Stack",
+    "resumo": "Focado em desenvolvimento web completo com React e Node.js.",
+    "localizacao": "Campinas - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "React",
+      "Node.js",
+      "MongoDB"
+    ],
+    "softSkills": [
+      "Trabalho em equipe",
+      "Proatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Dev Full Stack",
+        "inicio": "2022-05",
+        "fim": "2025-11",
+        "descricao": "Desenvolvimento e manutenção de aplicações web."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "PUC Campinas",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Sistema ERP Cloud",
+        "link": "https://exemplo.com",
+        "descricao": "Aplicação web integrada com APIs REST."
+      }
+    ],
+    "certificacoes": [
+      "TOTVS Dev Certification"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Transformação Digital",
+      "Cloud"
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Diogo Pelinson",
+    "foto": "https://i.pravatar.cc/150?img=24",
+    "cargo": "Analista de Sistemas",
+    "resumo": "Atua na análise e implementação de soluções em ERP e banco de dados.",
+    "localizacao": "Porto Alegre - RS",
+    "area": "Sistemas",
+    "habilidadesTecnicas": [
+      "Protheus",
+      "SQL",
+      "ADVPL"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InERP Consultoria",
+        "cargo": "Analista de Sistemas",
+        "inicio": "2021-01",
+        "fim": "2025-11",
+        "descricao": "Customizações e integrações no sistema Protheus."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Sistemas de Informação",
+        "instituicao": "UFRGS",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Implantação ERP",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de implantação e treinamento de usuários."
+      }
+    ],
+    "certificacoes": [
+      "TOTVS ADVPL Developer"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "ERP",
+      "Automação de Processos"
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Pedro Caires",
+    "foto": "https://i.pravatar.cc/150?img=47",
+    "cargo": "Engenheiro de Software",
+    "resumo": "Apaixonado por tecnologia e inovação, desenvolve soluções completas com foco em performance e usabilidade.",
+    "localizacao": "São Paulo - SP",
+    "area": "Engenharia de Software",
+    "habilidadesTecnicas": [
+      "React",
+      "TailwindCSS",
+      "Python",
+      "SQL"
+    ],
+    "softSkills": [
+      "Liderança",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Engenheiro de Software",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Projetos de automação e integração entre sistemas ERP."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2025
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Portal Dona Bella",
+        "link": "https://exemplo.com",
+        "descricao": "Sistema de pedidos e controle de produção para marmitas."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner",
+      "TOTVS Developer"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IA",
+      "Cloud Computing",
+      "Empreendedorismo"
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "Fernanda Lima",
+    "foto": "https://i.pravatar.cc/150?img=10",
+    "cargo": "Analista de Dados",
+    "resumo": "Especialista em Power BI e modelagem de dados corporativos.",
+    "localizacao": "Rio de Janeiro - RJ",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Power BI",
+      "SQL",
+      "Excel"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Martech Solutions",
+        "cargo": "Analista de Dados",
+        "inicio": "2022-02",
+        "fim": "2025-10",
+        "descricao": "Construção de dashboards executivos."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Produção",
+        "instituicao": "UFRJ",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "BI Financeiro",
+        "link": "https://exemplo.com",
+        "descricao": "Dashboard de KPIs financeiros em Power BI."
+      }
+    ],
+    "certificacoes": [
+      "Microsoft Power BI Data Analyst"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Análise de Dados",
+      "Automação"
+    ]
+  },
+  {
+    "id": 8,
+    "nome": "Camila Souza",
+    "foto": "https://i.pravatar.cc/150?img=16",
+    "cargo": "Desenvolvedora Front-end",
+    "resumo": "Desenvolve interfaces modernas com React e Tailwind.",
+    "localizacao": "São Paulo - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "React",
+      "TailwindCSS",
+      "JavaScript"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "StartTech",
+        "cargo": "Front-end Developer",
+        "inicio": "2023-01",
+        "fim": "2025-11",
+        "descricao": "Criação de interfaces responsivas."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Portal Educacional",
+        "link": "https://exemplo.com",
+        "descricao": "Plataforma de cursos online com React."
+      }
+    ],
+    "certificacoes": [
+      "Certificação React Developer"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "UI/UX",
+      "Educação"
+    ]
+  },
+  {
+    "id": 9,
+    "nome": "Rafael Martins",
+    "foto": "https://i.pravatar.cc/150?img=19",
+    "cargo": "DevOps Engineer",
+    "resumo": "Atua em automação de deploys, CI/CD e infraestrutura em nuvem.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Infraestrutura",
+    "habilidadesTecnicas": [
+      "AWS",
+      "Docker",
+      "Jenkins"
+    ],
+    "softSkills": [
+      "Resolução de Problemas",
+      "Trabalho em equipe"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "DevOps Engineer",
+        "inicio": "2021-04",
+        "fim": "2025-11",
+        "descricao": "Pipelines de CI/CD e IaC."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Ciência da Computação",
+        "instituicao": "UFSC",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Infra Cloud",
+        "link": "https://exemplo.com",
+        "descricao": "Infraestrutura AWS automatizada."
+      }
+    ],
+    "certificacoes": [
+      "AWS Solutions Architect Associate"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "Automação"
+    ]
+  },
+  {
+    "id": 10,
+    "nome": "Fábio Zanetti",
+    "foto": "https://i.pravatar.cc/150?img=11",
+    "cargo": "Desenvolvedor Front-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Campinas - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "Python",
+      "Azure",
+      "Next.js",
+      "AWS",
+      "Kubernetes"
+    ],
+    "softSkills": [
+      "Organização",
+      "Criatividade",
+      "Comunicação",
+      "Liderança"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Desenvolvedor Front-end",
+        "inicio": "2022-03",
+        "fim": "2025-11",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Finanças",
+      "IoT"
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "Olívia Zanetti",
+    "foto": "https://i.pravatar.cc/150?img=12",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "São Paulo - SP",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "PowerBI",
+      "Kubernetes",
+      "Cypress",
+      "Figma"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "Product Manager",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Esportes"
+    ]
+  },
+  {
+    "id": 12,
+    "nome": "Diego Klein",
+    "foto": "https://i.pravatar.cc/150?img=13",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "FastAPI",
+      "Docker",
+      "Terraform",
+      "Kubernetes"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Proatividade",
+      "Pensamento crítico",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "QA Engineer",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Saúde",
+      "GovTech",
+      "Cloud"
+    ]
+  },
+  {
+    "id": 13,
+    "nome": "Natan Silva",
+    "foto": "https://i.pravatar.cc/150?img=14",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Brasília - DF",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "Kubernetes",
+      "TailwindCSS",
+      "Cypress",
+      "Node.js",
+      "Terraform"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Empatia"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "Product Designer",
+        "inicio": "2021-01",
+        "fim": "2024-12",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Sustentabilidade",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 14,
+    "nome": "Úrsula Ibrahim",
+    "foto": "https://i.pravatar.cc/150?img=15",
+    "cargo": "SRE",
+    "resumo": "Automação de deploys, IaC e observabilidade.",
+    "localizacao": "Rio de Janeiro - RJ",
+    "area": "Infraestrutura",
+    "habilidadesTecnicas": [
+      "SQL",
+      "Playwright",
+      "MongoDB",
+      "GCP"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Organização",
+      "Liderança"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "SRE",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Automação de deploys, IaC e observabilidade.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "GovTech",
+      "Educação",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 15,
+    "nome": "Yara Pereira",
+    "foto": "https://i.pravatar.cc/150?img=16",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "React",
+      "Kubernetes",
+      "Node.js",
+      "Docker"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Proatividade",
+      "Comunicação",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "IA ética",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 16,
+    "nome": "Carla Klein",
+    "foto": "https://i.pravatar.cc/150?img=17",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "São Paulo - SP",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "Kubernetes",
+      "Azure",
+      "React"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "GovTech"
+    ]
+  },
+  {
+    "id": 17,
+    "nome": "Queila Nascimento",
+    "foto": "https://i.pravatar.cc/150?img=18",
+    "cargo": "Cybersecurity Analyst",
+    "resumo": "Hardening, análise de vulnerabilidades e resposta a incidentes.",
+    "localizacao": "Belo Horizonte - MG",
+    "area": "Segurança",
+    "habilidadesTecnicas": [
+      "FastAPI",
+      "Node.js",
+      "PowerBI",
+      "SQL",
+      "GCP"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Liderança",
+      "Criatividade",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Cybersecurity Analyst",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "Hardening, análise de vulnerabilidades e resposta a incidentes.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Esportes",
+      "IA ética",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 18,
+    "nome": "Karen Werneck",
+    "foto": "https://i.pravatar.cc/150?img=19",
+    "cargo": "Desenvolvedor Front-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Porto Alegre - RS",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "MySQL",
+      "Azure",
+      "Python",
+      "PostgreSQL",
+      "Kafka"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Empatia",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Desenvolvedor Front-end",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 19,
+    "nome": "Carla Ferreira",
+    "foto": "https://i.pravatar.cc/150?img=20",
+    "cargo": "Desenvolvedor Front-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "São Paulo - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "GCP",
+      "MongoDB",
+      "AWS"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Resiliência",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Desenvolvedor Front-end",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Finanças",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 20,
+    "nome": "Vitor Ibrahim",
+    "foto": "https://i.pravatar.cc/150?img=21",
+    "cargo": "Eng. de Software",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Belo Horizonte - MG",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "SQL",
+      "TailwindCSS",
+      "FastAPI"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Resiliência",
+      "Pensamento crítico",
+      "Empatia"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Eng. de Software",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "Esportes"
+    ]
+  },
+  {
+    "id": 21,
+    "nome": "Jorge Dias",
+    "foto": "https://i.pravatar.cc/150?img=22",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Figma",
+      "MongoDB",
+      "Jenkins",
+      "AWS"
+    ],
+    "softSkills": [
+      "Organização",
+      "Proatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 22,
+    "nome": "Isabela Ramos",
+    "foto": "https://i.pravatar.cc/150?img=23",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "TypeScript",
+      "Docker",
+      "TailwindCSS",
+      "Figma",
+      "Terraform"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Gestão de tempo",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "QA Engineer",
+        "inicio": "2021-01",
+        "fim": "2024-12",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Finanças",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 23,
+    "nome": "Karen Ximenes",
+    "foto": "https://i.pravatar.cc/150?img=24",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Campinas - SP",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "Playwright",
+      "Node.js",
+      "SQL"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Liderança",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "GovTech",
+      "Finanças",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 24,
+    "nome": "Bruno Pereira",
+    "foto": "https://i.pravatar.cc/150?img=25",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "São Paulo - SP",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Django",
+      "PowerBI",
+      "AWS",
+      "Node.js",
+      "Docker"
+    ],
+    "softSkills": [
+      "Liderança",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Cientista de Dados",
+        "inicio": "2022-03",
+        "fim": "2025-11",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "Finanças",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 25,
+    "nome": "Natan Werneck",
+    "foto": "https://i.pravatar.cc/150?img=26",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "São Paulo - SP",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "MySQL",
+      "FastAPI",
+      "Cypress",
+      "Figma",
+      "Django"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Criatividade",
+      "Pensamento crítico",
+      "Liderança"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Saúde",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 26,
+    "nome": "Sofia Barbosa",
+    "foto": "https://i.pravatar.cc/150?img=27",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Curitiba - PR",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Terraform",
+      "Azure",
+      "TailwindCSS"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Esportes",
+      "IA ética",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 27,
+    "nome": "Henrique Werneck",
+    "foto": "https://i.pravatar.cc/150?img=28",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Campinas - SP",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "React",
+      "Next.js",
+      "Docker",
+      "AWS"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Organização",
+      "Proatividade",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Finanças",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 28,
+    "nome": "Queila Ramos",
+    "foto": "https://i.pravatar.cc/150?img=29",
+    "cargo": "DevOps Engineer",
+    "resumo": "Automação de deploys, IaC e observabilidade.",
+    "localizacao": "Brasília - DF",
+    "area": "Infraestrutura",
+    "habilidadesTecnicas": [
+      "Cypress",
+      "Terraform",
+      "Playwright",
+      "Jenkins"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "DevOps Engineer",
+        "inicio": "2022-03",
+        "fim": "2024-12",
+        "descricao": "Automação de deploys, IaC e observabilidade.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Esportes",
+      "IA ética",
+      "IoT"
+    ]
+  },
+  {
+    "id": 29,
+    "nome": "Mariana Cardoso",
+    "foto": "https://i.pravatar.cc/150?img=30",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "Node.js",
+      "Jenkins",
+      "Kubernetes",
+      "Azure"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Proatividade",
+      "Liderança",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "QA Engineer",
+        "inicio": "2022-03",
+        "fim": "2024-12",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "GovTech",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 30,
+    "nome": "Sofia Queiroz",
+    "foto": "https://i.pravatar.cc/150?img=31",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Porto Alegre - RS",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Figma",
+      "PowerBI",
+      "MongoDB",
+      "Azure",
+      "TypeScript"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Liderança"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 31,
+    "nome": "Úrsula Oliveira",
+    "foto": "https://i.pravatar.cc/150?img=32",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "AWS",
+      "Kafka",
+      "PostgreSQL"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Proatividade",
+      "Gestão de tempo",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Product Manager",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 32,
+    "nome": "Xavier Klein",
+    "foto": "https://i.pravatar.cc/150?img=33",
+    "cargo": "Eng. de Software",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "PostgreSQL",
+      "Python",
+      "Kubernetes"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Empatia"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Eng. de Software",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Finanças",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 33,
+    "nome": "Renato Silva",
+    "foto": "https://i.pravatar.cc/150?img=34",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Rio de Janeiro - RJ",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "Cypress",
+      "TypeScript",
+      "Terraform",
+      "Jenkins",
+      "Kubernetes"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Liderança",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Saúde",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 34,
+    "nome": "Xavier Ximenes",
+    "foto": "https://i.pravatar.cc/150?img=35",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "AWS",
+      "Next.js",
+      "React",
+      "Playwright",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Colaboração",
+      "Criatividade",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Product Manager",
+        "inicio": "2021-01",
+        "fim": "2025-06",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA",
+      "AZ-900"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "IoT",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 35,
+    "nome": "Vitor Vasconcelos",
+    "foto": "https://i.pravatar.cc/150?img=36",
+    "cargo": "Desenvolvedor Front-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Recife - PE",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "Jenkins",
+      "Docker",
+      "PostgreSQL",
+      "Node.js",
+      "SQL"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Gestão de tempo",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Desenvolvedor Front-end",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 36,
+    "nome": "Elaine Cardoso",
+    "foto": "https://i.pravatar.cc/150?img=37",
+    "cargo": "Cybersecurity Analyst",
+    "resumo": "Hardening, análise de vulnerabilidades e resposta a incidentes.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Segurança",
+    "habilidadesTecnicas": [
+      "Figma",
+      "Playwright",
+      "Python"
+    ],
+    "softSkills": [
+      "Organização",
+      "Colaboração",
+      "Resiliência",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "Cybersecurity Analyst",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Hardening, análise de vulnerabilidades e resposta a incidentes.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2020
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA",
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Sustentabilidade",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 37,
+    "nome": "Mariana Oliveira",
+    "foto": "https://i.pravatar.cc/150?img=38",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Curitiba - PR",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "GCP",
+      "Kubernetes",
+      "Python",
+      "Figma"
+    ],
+    "softSkills": [
+      "Organização",
+      "Criatividade",
+      "Pensamento crítico",
+      "Empatia"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Product Designer",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Saúde",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 38,
+    "nome": "Gabriela Ferreira",
+    "foto": "https://i.pravatar.cc/150?img=39",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "Campinas - SP",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "GCP",
+      "Cypress",
+      "AWS",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Product Manager",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA",
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "Esportes"
+    ]
+  },
+  {
+    "id": 39,
+    "nome": "Bruno Ferreira",
+    "foto": "https://i.pravatar.cc/150?img=40",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Brasília - DF",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "Playwright",
+      "Kubernetes",
+      "Python",
+      "MongoDB"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Startup Y",
+        "cargo": "QA Engineer",
+        "inicio": "2022-03",
+        "fim": "2024-12",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Saúde"
+    ]
+  },
+  {
+    "id": 40,
+    "nome": "Karen Ramos",
+    "foto": "https://i.pravatar.cc/150?img=41",
+    "cargo": "Cybersecurity Analyst",
+    "resumo": "Hardening, análise de vulnerabilidades e resposta a incidentes.",
+    "localizacao": "São Paulo - SP",
+    "area": "Segurança",
+    "habilidadesTecnicas": [
+      "Kubernetes",
+      "Kafka",
+      "Docker",
+      "Python",
+      "TypeScript"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Cybersecurity Analyst",
+        "inicio": "2022-03",
+        "fim": "2025-11",
+        "descricao": "Hardening, análise de vulnerabilidades e resposta a incidentes.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "Educação",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 41,
+    "nome": "Wesley Teixeira",
+    "foto": "https://i.pravatar.cc/150?img=42",
+    "cargo": "DevOps Engineer",
+    "resumo": "Automação de deploys, IaC e observabilidade.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Infraestrutura",
+    "habilidadesTecnicas": [
+      "PowerBI",
+      "PostgreSQL",
+      "Jenkins",
+      "TypeScript",
+      "MongoDB"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Comunicação",
+      "Liderança",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "DevOps Engineer",
+        "inicio": "2021-01",
+        "fim": "2024-12",
+        "descricao": "Automação de deploys, IaC e observabilidade.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2024
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "IoT",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 42,
+    "nome": "Karen Lopes",
+    "foto": "https://i.pravatar.cc/150?img=43",
+    "cargo": "Desenvolvedor Front-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "Playwright",
+      "Kubernetes",
+      "FastAPI",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Colaboração",
+      "Criatividade",
+      "Empatia",
+      "Proatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Desenvolvedor Front-end",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "GovTech",
+      "Cloud"
+    ]
+  },
+  {
+    "id": 43,
+    "nome": "Gabriela Barbosa",
+    "foto": "https://i.pravatar.cc/150?img=44",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Campinas - SP",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "PowerBI",
+      "TypeScript",
+      "MySQL",
+      "Kafka"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Empatia",
+      "Criatividade",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "QA Engineer",
+        "inicio": "2023-02",
+        "fim": "2024-12",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "GovTech"
+    ]
+  },
+  {
+    "id": 44,
+    "nome": "Mariana Esteves",
+    "foto": "https://i.pravatar.cc/150?img=45",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Recife - PE",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "MySQL",
+      "React",
+      "Kubernetes",
+      "Figma",
+      "SQL"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Pensamento crítico",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "QA Engineer",
+        "inicio": "2022-03",
+        "fim": "2025-11",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 45,
+    "nome": "Isabela Klein",
+    "foto": "https://i.pravatar.cc/150?img=46",
+    "cargo": "Analista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Porto Alegre - RS",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "TailwindCSS",
+      "Jenkins",
+      "Next.js",
+      "Playwright",
+      "Node.js"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Organização",
+      "Empatia"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Analista de Dados",
+        "inicio": "2022-03",
+        "fim": "2024-12",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Esportes",
+      "Saúde",
+      "Educação"
+    ]
+  },
+  {
+    "id": 46,
+    "nome": "Luiz Zanetti",
+    "foto": "https://i.pravatar.cc/150?img=47",
+    "cargo": "Eng. de Software",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Campinas - SP",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "Cypress",
+      "PostgreSQL",
+      "Python",
+      "Docker",
+      "AWS"
+    ],
+    "softSkills": [
+      "Resiliência",
+      "Criatividade",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Eng. de Software",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Saúde",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 47,
+    "nome": "Thiago Yamada",
+    "foto": "https://i.pravatar.cc/150?img=48",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "PostgreSQL",
+      "PowerBI",
+      "SQL",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "Product Manager",
+        "inicio": "2021-01",
+        "fim": "2025-11",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "Educação"
+    ]
+  },
+  {
+    "id": 48,
+    "nome": "Vitor Gomes",
+    "foto": "https://i.pravatar.cc/150?img=49",
+    "cargo": "Cybersecurity Analyst",
+    "resumo": "Hardening, análise de vulnerabilidades e resposta a incidentes.",
+    "localizacao": "Rio de Janeiro - RJ",
+    "area": "Segurança",
+    "habilidadesTecnicas": [
+      "Figma",
+      "TypeScript",
+      "GCP",
+      "Docker"
+    ],
+    "softSkills": [
+      "Resiliência",
+      "Criatividade",
+      "Empatia",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Cybersecurity Analyst",
+        "inicio": "2022-03",
+        "fim": "2025-11",
+        "descricao": "Hardening, análise de vulnerabilidades e resposta a incidentes.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "GovTech",
+      "Finanças"
+    ]
+  },
+  {
+    "id": 49,
+    "nome": "Ana Ibrahim",
+    "foto": "https://i.pravatar.cc/150?img=50",
+    "cargo": "Product Manager",
+    "resumo": "Descoberta, métricas e priorização orientada a dados.",
+    "localizacao": "Fortaleza - CE",
+    "area": "Produto",
+    "habilidadesTecnicas": [
+      "Kubernetes",
+      "Docker",
+      "Python",
+      "PostgreSQL"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Gestão de tempo",
+      "Comunicação",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Product Manager",
+        "inicio": "2022-03",
+        "fim": "2024-12",
+        "descricao": "Descoberta, métricas e priorização orientada a dados.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Sustentabilidade",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 50,
+    "nome": "Elaine Ferreira",
+    "foto": "https://i.pravatar.cc/150?img=51",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Brasília - DF",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "AWS",
+      "Azure",
+      "FastAPI"
+    ],
+    "softSkills": [
+      "Pensamento crítico",
+      "Comunicação",
+      "Liderança"
+    ],
+    "experiencias": [
+      {
+        "empresa": "CloudBridge",
+        "cargo": "QA Engineer",
+        "inicio": "2022-03",
+        "fim": "2025-06",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "CKA"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "IA ética",
+      "IoT"
+    ]
+  },
+  {
+    "id": 51,
+    "nome": "Paulo Oliveira",
+    "foto": "https://i.pravatar.cc/150?img=52",
+    "cargo": "Desenvolvedor Back-end",
+    "resumo": "Desenvolvimento web moderno e APIs escaláveis.",
+    "localizacao": "Belo Horizonte - MG",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "TailwindCSS",
+      "GCP",
+      "Figma"
+    ],
+    "softSkills": [
+      "Empatia",
+      "Comunicação",
+      "Proatividade",
+      "Gestão de tempo"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Desenvolvedor Back-end",
+        "inicio": "2021-01",
+        "fim": "2025-06",
+        "descricao": "Desenvolvimento web moderno e APIs escaláveis.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Cloud",
+      "IoT"
+    ]
+  },
+  {
+    "id": 52,
+    "nome": "Paulo Ferreira",
+    "foto": "https://i.pravatar.cc/150?img=53",
+    "cargo": "Cybersecurity Analyst",
+    "resumo": "Hardening, análise de vulnerabilidades e resposta a incidentes.",
+    "localizacao": "Brasília - DF",
+    "area": "Segurança",
+    "habilidadesTecnicas": [
+      "Python",
+      "PowerBI",
+      "Docker",
+      "SQL",
+      "FastAPI"
+    ],
+    "softSkills": [
+      "Gestão de tempo",
+      "Resiliência"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Cybersecurity Analyst",
+        "inicio": "2021-01",
+        "fim": "2024-12",
+        "descricao": "Hardening, análise de vulnerabilidades e resposta a incidentes.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Scrum Fundamentals",
+      "AZ-900"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 53,
+    "nome": "Olívia Pereira",
+    "foto": "https://i.pravatar.cc/150?img=54",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Curitiba - PR",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "Azure",
+      "Terraform",
+      "React",
+      "MySQL",
+      "Kafka"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Comunicação"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Corp Z",
+        "cargo": "QA Engineer",
+        "inicio": "2023-02",
+        "fim": "2025-11",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "DBT Fundamentals",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "Finanças",
+      "Esportes"
+    ]
+  },
+  {
+    "id": 54,
+    "nome": "Mariana Klein",
+    "foto": "https://i.pravatar.cc/150?img=55",
+    "cargo": "QA Engineer",
+    "resumo": "Testes automatizados, cobertura e qualidade contínua.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Qualidade",
+    "habilidadesTecnicas": [
+      "Terraform",
+      "Cypress",
+      "Docker",
+      "React"
+    ],
+    "softSkills": [
+      "Resiliência",
+      "Organização"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "QA Engineer",
+        "inicio": "2021-01",
+        "fim": "2025-11",
+        "descricao": "Testes automatizados, cobertura e qualidade contínua.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "Cloud",
+      "Educação"
+    ]
+  },
+  {
+    "id": 55,
+    "nome": "Úrsula Nascimento",
+    "foto": "https://i.pravatar.cc/150?img=56",
+    "cargo": "Analista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Florianópolis - SC",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Kafka",
+      "TailwindCSS",
+      "SQL",
+      "FastAPI",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "Analista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2023
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "CKA",
+      "Linux Essentials"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Cloud",
+      "IoT"
+    ]
+  },
+  {
+    "id": 56,
+    "nome": "Wesley Uchoa",
+    "foto": "https://i.pravatar.cc/150?img=57",
+    "cargo": "Analista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Brasília - DF",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Terraform",
+      "Playwright",
+      "Cypress",
+      "Node.js"
+    ],
+    "softSkills": [
+      "Comunicação",
+      "Colaboração",
+      "Liderança",
+      "Criatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Analista de Dados",
+        "inicio": "2021-01",
+        "fim": "2024-12",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2021
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "Linux Essentials",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Avançado"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "Sustentabilidade"
+    ]
+  },
+  {
+    "id": 57,
+    "nome": "Queila Klein",
+    "foto": "https://i.pravatar.cc/150?img=58",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Recife - PE",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Next.js",
+      "Node.js",
+      "Azure",
+      "AWS",
+      "Django"
+    ],
+    "softSkills": [
+      "Criatividade",
+      "Empatia",
+      "Comunicação",
+      "Colaboração"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner",
+      "AZ-900"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "IA ética"
+    ]
+  },
+  {
+    "id": 58,
+    "nome": "Fábio Dias",
+    "foto": "https://i.pravatar.cc/150?img=59",
+    "cargo": "Product Designer",
+    "resumo": "UX/UI com foco em acessibilidade e pesquisa com usuários.",
+    "localizacao": "Brasília - DF",
+    "area": "Design",
+    "habilidadesTecnicas": [
+      "AWS",
+      "Figma",
+      "Azure",
+      "Playwright"
+    ],
+    "softSkills": [
+      "Resiliência",
+      "Liderança",
+      "Proatividade",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "TechWay",
+        "cargo": "Product Designer",
+        "inicio": "2021-01",
+        "fim": "2025-06",
+        "descricao": "UX/UI com foco em acessibilidade e pesquisa com usuários.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Intermediário"
+      }
+    ],
+    "areasInteresse": [
+      "IoT",
+      "GovTech"
+    ]
+  },
+  {
+    "id": 59,
+    "nome": "Jorge Pereira",
+    "foto": "https://i.pravatar.cc/150?img=60",
+    "cargo": "Cientista de Dados",
+    "resumo": "Modelagem preditiva, ETL e visualização executiva.",
+    "localizacao": "Curitiba - PR",
+    "area": "Dados",
+    "habilidadesTecnicas": [
+      "Next.js",
+      "Jenkins",
+      "Kafka",
+      "Node.js",
+      "MySQL"
+    ],
+    "softSkills": [
+      "Liderança",
+      "Resiliência",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "InRH Consultoria",
+        "cargo": "Cientista de Dados",
+        "inicio": "2023-02",
+        "fim": "2025-06",
+        "descricao": "Modelagem preditiva, ETL e visualização executiva.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2019
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900",
+      "AWS Cloud Practitioner"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Educação",
+      "Saúde",
+      "Cloud"
+    ]
+  },
+  {
+    "id": 60,
+    "nome": "Thiago Barbosa",
+    "foto": "https://i.pravatar.cc/150?img=61",
+    "cargo": "DevOps Engineer",
+    "resumo": "Automação de deploys, IaC e observabilidade.",
+    "localizacao": "Curitiba - PR",
+    "area": "Infraestrutura",
+    "habilidadesTecnicas": [
+      "PostgreSQL",
+      "PowerBI",
+      "Docker"
+    ],
+    "softSkills": [
+      "Proatividade",
+      "Comunicação",
+      "Pensamento crítico"
+    ],
+    "experiencias": [
+      {
+        "empresa": "DataMind",
+        "cargo": "DevOps Engineer",
+        "inicio": "2021-01",
+        "fim": "2025-11",
+        "descricao": "Automação de deploys, IaC e observabilidade.."
+      }
+    ],
+    "formacao": [
+      {
+        "curso": "Engenharia de Software",
+        "instituicao": "FIAP",
+        "ano": 2022
+      }
+    ],
+    "projetos": [
+      {
+        "titulo": "Projeto Showcase",
+        "link": "https://exemplo.com",
+        "descricao": "Projeto de portfólio."
+      }
+    ],
+    "certificacoes": [
+      "AZ-900"
+    ],
+    "idiomas": [
+      {
+        "idioma": "Inglês",
+        "nivel": "Fluente"
+      }
+    ],
+    "areasInteresse": [
+      "Esportes",
+      "Sustentabilidade"
+    ]
+  }
+]

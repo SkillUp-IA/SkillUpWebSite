@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  profiles  Profile[]
+}
+
+model Profile {
+  id                Int       @id @default(autoincrement())
+  // Campos básicos (cards)
+  nome              String
+  foto              String     // ex: "/images/foto1.jpg" ou URL
+  cargo             String
+  resumo            String     @db.Text
+  localizacao       String     // "São Paulo/SP"
+  area              String     // "Desenvolvimento", "Design", etc.
+
+  // Campos complexos -> JSON (MySQL via Prisma usa JSON pros arrays/objetos)
+  habilidadesTecnicas Json     // array[string]
+  softSkills          Json     // array[string]
+  experiencias        Json     // array[object]: {empresa, cargo, inicio, fim, descricao}
+  formacao            Json     // array[object]: {curso, instituicao, ano}
+  projetos            Json     // array[object]: {titulo, link?, descricao?}
+  certificacoes       Json     // array[object]: {nome, org?, ano?}
+  idiomas             Json     // array[object]: {idioma, nivel}
+  areasInteresses     Json     // array[string]
+
+  // Relacionamento opcional com usuário dono do perfil
+  ownerId            Int?
+  owner              User?     @relation(fields: [ownerId], references: [id])
+
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([area])
+  @@index([localizacao])
+  @@index([cargo])
+}
