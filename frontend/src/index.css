@@ -1,1 +1,12 @@
+/* src/index.css */
+
+/* 👇 Essa diretiva é essencial e deve vir antes do import */
+@config "../tailwind.config.js";
+
+/* 👇 Importa o núcleo do Tailwind (substitui o antigo base/components/utilities) */
 @import "tailwindcss";
+
+/* (Opcional) transição suave ao trocar de tema */
+html {
+  transition: background-color 0.3s, color 0.3s;
+}

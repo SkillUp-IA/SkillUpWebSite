@@ -26,6 +26,25 @@ export default function Home() {
 
   const gridRef = useRef(null)
 
+  // ========= TEMA (persistência + sync com <html>) =========
+  const getInitialTheme = () => {
+    if (typeof window === 'undefined') return 'light'
+    const saved = localStorage.getItem('theme')
+    if (saved === 'dark' || saved === 'light') return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  }
+
+  const [theme, setTheme] = useState(getInitialTheme)
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (theme === 'dark') root.classList.add('dark')
+    else root.classList.remove('dark')
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
+
   // Carrega dados (API -> /data/profiles.json -> /profiles.json)
   useEffect(() => {
     ;(async () => {
@@ -56,7 +75,6 @@ export default function Home() {
         setLoading(false)
       }
     })()
-    // refaz quando voltar do /register (usamos ?_t=timestamp)
   }, [location.search])
 
   // Animações
@@ -81,19 +99,6 @@ export default function Home() {
       easing: 'easeOutQuad'
     })
   }, [data, q, cidade, area, tech])
-
-  // Tema
-  function toggleTheme() {
-    const root = document.documentElement
-    const isDark = root.classList.contains('dark')
-    if (isDark) {
-      root.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    } else {
-      root.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    }
-  }
 
   // Listas de filtros
   const cidades = useMemo(() => ['Todas', ...new Set(data.map(p => p.localizacao))], [data])
@@ -193,7 +198,7 @@ export default function Home() {
             onClick={toggleTheme}
             className="px-3 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-800 text-sm transition hover:opacity-80"
           >
-            Alternar tema 🌞🌙
+            Alternar tema {theme === 'dark' ? '🌙' : '🌞'}
           </button>
 
           <button
