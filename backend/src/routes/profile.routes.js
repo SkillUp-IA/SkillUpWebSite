@@ -1,45 +1,70 @@
-// src/routes/profile.routes.js
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+// backend/src/routes/profile.routes.js
+import { Router } from "express";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const router = Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// usamos a mesma pasta exposta em app.use('/data', …)
-const dataDir = path.join(__dirname, '../data');
-const filePath = path.join(dataDir, 'profiles.json');
+// 👉 Sempre usar backend/data (um nível acima de src/)
+const dataDir = path.join(__dirname, "../../data");
+const filePath = path.join(dataDir, "profiles.json");
 
 function ensureStore() {
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-  if (!fs.existsSync(filePath)) fs.writeFileSync(filePath, '[]', 'utf-8');
+  if (!fs.existsSync(filePath)) fs.writeFileSync(filePath, "[]", "utf-8");
 }
-
+function safeParseJson(txt) {
+  // remove BOM + espaços
+  const clean = txt.replace(/^\uFEFF/, "").trim();
+  return JSON.parse(clean);
+}
 function readAll() {
   ensureStore();
   try {
-    const txt = fs.readFileSync(filePath, 'utf-8');
-    const arr = JSON.parse(txt);
+    const txt = fs.readFileSync(filePath, "utf-8");
+    const arr = safeParseJson(txt);
     return Array.isArray(arr) ? arr : [];
-  } catch {
+  } catch (e) {
+    console.error("[profiles] read error:", e.message);
     return [];
   }
 }
-
 function writeAll(arr) {
   ensureStore();
-  fs.writeFileSync(filePath, JSON.stringify(arr, null, 2), 'utf-8');
+  console.log("[profiles] write:", filePath, "len=", arr.length);
+  fs.writeFileSync(filePath, JSON.stringify(arr, null, 2), "utf-8");
 }
-
 function nextId(arr) {
   const max = arr.reduce((m, i) => Math.max(m, Number(i.id || 0)), 0);
   return max + 1;
 }
 
+/* ======= DEBUGS (antes de /:id !) ======= */
+router.get("/profiles/__debug", (_req, res) => {
+  const all = readAll();
+  res.json({
+    filePath,
+    count: all.length,
+    firstId: all[0]?.id ?? null,
+    lastId: all[all.length - 1]?.id ?? null,
+  });
+});
+router.get("/profiles/__validate", (_req, res) => {
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    safeParseJson(raw);
+    res.json({ ok: true, filePath });
+  } catch (e) {
+    res.status(422).json({ ok: false, filePath, parseError: e.message });
+  }
+});
+
+/* ======= LISTA PAGINADA ======= */
 // GET /profiles?page=1&pageSize=60
-router.get('/profiles', (req, res) => {
+router.get("/profiles", (req, res) => {
   const page = Number(req.query.page || 1);
   const pageSize = Number(req.query.pageSize || 60);
 
@@ -57,46 +82,43 @@ router.get('/profiles', (req, res) => {
   });
 });
 
-// GET /profiles/:id
-router.get('/profiles/:id', (req, res) => {
+/* ======= DETALHE ======= */
+router.get("/profiles/:id", (req, res) => {
   const id = String(req.params.id);
   const all = readAll();
-  const it = all.find(p => String(p.id) === id);
-  if (!it) return res.status(404).json({ error: 'Perfil não encontrado' });
+  const it = all.find((p) => String(p.id) === id);
+  if (!it) return res.status(404).json({ error: "Perfil não encontrado" });
   res.json(it);
 });
 
-// POST /profiles  (cria card)
-router.post('/profiles', (req, res) => {
-  const body = req.body || {};
-  const required = ['nome', 'cargo'];
-  for (const k of required) {
-    if (!body[k]) return res.status(400).json({ error: `Campo obrigatório: ${k}` });
+/* ======= CRIAR (sempre adiciona no FINAL) ======= */
+router.post("/profiles", (req, res) => {
+  const b = req.body || {};
+  for (const k of ["nome", "cargo"]) {
+    if (!b[k]) return res.status(400).json({ error: `Campo obrigatório: ${k}` });
   }
 
   const all = readAll();
-  const id = nextId(all);
-
   const profile = {
-    id,
-    nome: body.nome,
-    foto: body.foto || 'https://i.pravatar.cc/150',
-    cargo: body.cargo,
-    resumo: body.resumo || '',
-    localizacao: body.localizacao || '',
-    area: body.area || 'Desenvolvimento',
-    habilidadesTecnicas: body.habilidadesTecnicas || [],
-    softSkills: body.softSkills || [],
-    experiencias: body.experiencias || [],
-    formacao: body.formacao || [],
-    projetos: body.projetos || [],
-    certificacoes: body.certificacoes || [],
-    idiomas: body.idiomas || [],
-    areasInteresse: body.areasInteresse || [],
+    id: nextId(all),
+    nome: b.nome,
+    foto: b.foto || "https://i.pravatar.cc/150",
+    cargo: b.cargo,
+    resumo: b.resumo || "",
+    localizacao: b.localizacao || "",
+    area: b.area || "Desenvolvimento",
+    habilidadesTecnicas: b.habilidadesTecnicas || [],
+    softSkills: b.softSkills || [],
+    experiencias: b.experiencias || [],
+    formacao: b.formacao || [],
+    projetos: b.projetos || [],
+    certificacoes: b.certificacoes || [],
+    idiomas: b.idiomas || [],
+    areasInteresse: b.areasInteresse || [],
     createdAt: new Date().toISOString(),
   };
 
-  all.push(profile);
+  all.push(profile); // ⬅️ vai para o FINAL
   writeAll(all);
   res.status(201).json(profile);
 });

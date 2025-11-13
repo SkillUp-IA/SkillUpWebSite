@@ -51,7 +51,7 @@ export default function Home() {
       setErrMsg('')
       setLoading(true)
       try {
-        const res = await fetchProfiles({ pageSize: 60 })
+        const res = await fetchProfiles({ pageSize: 500 })
         const list = Array.isArray(res) ? res : res.items ?? []
         if (!list.length) throw new Error('API vazia')
         setData(list)
@@ -155,7 +155,12 @@ export default function Home() {
         className="sticky top-0 z-40 bg-white/70 dark:bg-zinc-900/70 backdrop-blur border-b border-zinc-200 dark:border-zinc-800"
       >
         <div className="max-w-6xl mx-auto px-4 py-3 flex flex-wrap gap-3 items-center">
-          <h1 className="font-semibold text-lg flex-1">SkillUp IA</h1>
+          {/* ── LOGO + título ───────────────────────────────────────────── */}
+          <div className="flex items-center gap-2 flex-1">
+            {/* pega do /public */}
+            <img src="/skillup-logo.png" alt="SkillUp IA" className="h-8 w-8 select-none" />
+            <span className="font-semibold text-lg">SkillUp IA</span>
+          </div>
 
           <input
             value={q}
@@ -209,10 +214,7 @@ export default function Home() {
             {suggesting ? 'Gerando…' : 'Sugestões da IA'}
           </button>
 
-          <Link
-            to="/register"
-            className="px-3 py-2 rounded-xl bg-emerald-600 text-white text-sm hover:opacity-90"
-          >
+          <Link to="/auth" className="px-3 py-2 rounded-xl bg-emerald-600 text-white text-sm hover:opacity-90">
             Criar Perfil
           </Link>
 

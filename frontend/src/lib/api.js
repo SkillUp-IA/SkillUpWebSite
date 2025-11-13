@@ -1,72 +1,109 @@
-// src/lib/api.js
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+// frontend/src/lib/api.js
+import axios from "axios";
 
-function getToken() {
-  return localStorage.getItem('token') || '';
-}
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-export async function apiFetch(
-  path,
-  { method = 'GET', body, isForm = false, token } = {}
-) {
-  const headers = {};
-  if (!isForm) headers['Content-Type'] = 'application/json';
+const api = axios.create({ baseURL: API_URL });
 
-  const auth = token ?? getToken();
-  if (auth) headers['Authorization'] = `Bearer ${auth}`;
+// Injeta token em todas as requisições
+api.interceptors.request.use((config) => {
+  const t = localStorage.getItem("token");
+  if (t) config.headers.Authorization = `Bearer ${t}`;
+  return config;
+});
 
-  const res = await fetch(`${API_URL}${path}`, {
-    method,
-    headers,
-    body: isForm ? body : body ? JSON.stringify(body) : undefined,
-  });
-
-  const ct = res.headers.get('content-type') || '';
-  const parsed = ct.includes('application/json') ? await res.json() : await res.text();
-
-  if (!res.ok) {
-    const msg = parsed?.error || parsed?.message || `HTTP ${res.status}`;
-    throw new Error(msg);
-  }
-  return parsed;
-}
-
-// Auth
+/* ========= AUTH ========= */
 export async function login(username, password) {
-  return apiFetch('/login', { method: 'POST', body: { username, password } });
+  const { data } = await api.post("/login", { username, password });
+  return data; // { message, token }
 }
+
 export async function register(username, password) {
-  return apiFetch('/register', { method: 'POST', body: { username, password } });
+  const { data } = await api.post("/register", { username, password });
+  return data; // { message, user }
 }
 
-// Perfis
-export async function fetchProfiles({ page = 1, pageSize = 60 } = {}) {
-  return apiFetch(`/profiles?page=${page}&pageSize=${pageSize}`);
-}
+/* ========= PERFIS ========= */
 export async function createProfile(profile) {
-  return apiFetch('/profiles', { method: 'POST', body: profile });
+  const { data } = await api.post("/profiles", profile);
+  return data;
 }
 
-// IA
-export async function aiSuggest({ skills = [], area = '', city = '', k = 6 }) {
-  return apiFetch('/ai/suggest', { method: 'POST', body: { skills, area, city, k } });
+export async function fetchProfiles({ page = 1, pageSize = 60 } = {}) {
+  const { data } = await api.get("/profiles", { params: { page, pageSize } });
+  return data.items ?? data; // compatível com Home.jsx
 }
+
+/* ========= IA (SUGESTÕES) ========= */
+export async function aiSuggest(payload) {
+  try {
+    const { data } = await api.post("/ai/suggest", payload);
+    return data; // { items: [...] }
+  } catch {
+    return { items: [] }; // fallback
+  }
+}
+
+/* ========= IA (EXTRACT + SUMMARY) =========
+   Chamam endpoints caso existam; se não, retornam um fallback local. */
 export async function aiExtract(text) {
-  return apiFetch('/ai/extract', { method: 'POST', body: { text } });
-}
-export async function aiSummary(profile) {
-  return apiFetch('/ai/summary', { method: 'POST', body: { profile } });
+  try {
+    const { data } = await api.post("/ai/extract", { text });
+    // esperado: { habilidadesTecnicas:[], softSkills:[], area:"..." }
+    return data || { habilidadesTecnicas: [], softSkills: [], area: "" };
+  } catch {
+    // heurística simples como quebra-galho
+    const lower = String(text || "").toLowerCase();
+    const skills = [];
+    ["react", "node", "java", "c#", "python", "sql", "docker", "aws", "tailwind"]
+      .forEach(k => lower.includes(k) && skills.push(k[0].toUpperCase() + k.slice(1)));
+    return {
+      habilidadesTecnicas: skills,
+      softSkills: [],
+      area: lower.includes("dados") ? "Dados"
+           : lower.includes("design") ? "Design"
+           : "Desenvolvimento",
+    };
+  }
 }
 
-// Upload
+export async function aiSummary(payload) {
+  try {
+    const { data } = await api.post("/ai/summary", payload);
+    // esperado: { resumo:"...", skillsSugeridas:[] }
+    return data || { resumo: "", skillsSugeridas: [] };
+  } catch {
+    const { nome = "", cargo = "", localizacao = "", area = "" } = payload || {};
+    return {
+      resumo: `${nome || "Profissional"} atuando em ${cargo || "sua área"}, localizado em ${localizacao || "..."}. Foco em ${area || "Tecnologia"} e evolução contínua.`,
+      skillsSugeridas: [],
+    };
+  }
+}
+
+/* ========= UPLOAD DE FOTO =========
+   Usa a rota /upload do seu backend (multer). */
 export async function uploadPhoto(file) {
-  const fd = new FormData();
-  fd.append('photo', file);
-  return apiFetch('/upload/photo', { method: 'POST', body: fd, isForm: true });
+  const form = new FormData();
+  form.append("file", file);
+  const { data } = await api.post("/upload", form, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  // esperado: { url: "http://.../uploads/arquivo.png" }
+  return data;
 }
 
-// Recomendações
+export default api;
+
+// ===== RECOMMEND (similaridade de perfis) =====
 export async function recommendProfile(payload) {
-  // payload: { toId, message, from }
-  return apiFetch('/recommend', { method: 'POST', body: payload });
+  // payload pode ser { id } ou { skills: [...], area, city, k }
+  try {
+    const { data } = await api.post("/recommend", payload);
+    // esperado: { items: [...] }
+    return data || { items: [] };
+  } catch {
+    // fallback se o endpoint não existir
+    return { items: [] };
+  }
 }

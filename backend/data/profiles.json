@@ -3411,5 +3411,43 @@
       "Esportes",
       "Sustentabilidade"
     ]
+  },
+  {
+    "id": 61,
+    "nome": "Tiago Caires",
+    "foto": "https://i.pravatar.cc/150",
+    "cargo": "Empresário",
+    "resumo": "Tenho uma empresa de consultoria de sistemas chamada IN ERP faz 4 anos",
+    "localizacao": "São Paulo",
+    "area": "Consultor de Sistemas",
+    "habilidadesTecnicas": [
+      "Protheus"
+    ],
+    "softSkills": [],
+    "experiencias": [],
+    "formacao": [],
+    "projetos": [],
+    "certificacoes": [],
+    "idiomas": [],
+    "areasInteresse": [],
+    "createdAt": "2025-11-13T12:50:56.830Z"
+  },
+  {
+    "id": 62,
+    "nome": "Lucas Bernardo",
+    "foto": "https://i.pravatar.cc/150",
+    "cargo": "Engenheiro de Software",
+    "resumo": "",
+    "localizacao": "São Paulo - SP",
+    "area": "Backend",
+    "habilidadesTecnicas": [],
+    "softSkills": [],
+    "experiencias": [],
+    "formacao": [],
+    "projetos": [],
+    "certificacoes": [],
+    "idiomas": [],
+    "areasInteresse": [],
+    "createdAt": "2025-11-13T15:00:48.259Z"
   }
 ]

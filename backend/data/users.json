@@ -22,5 +22,29 @@
     "username": "bacana",
     "password": "$2b$10$ZVinYYoCEn.p4fTtixfG9eekh1MeIegHpSGiFOtVsBm1LRjWmZ0e6",
     "createdAt": "2025-11-11T00:46:21.389Z"
+  },
+  {
+    "id": 5,
+    "username": "diogopelinson",
+    "password": "$2b$10$sUNdxuhZ.LeIgbY3K1zNXuW65XAO5ubqjymGUxdkEX0vO1.hjQAre",
+    "createdAt": "2025-11-13T02:50:16.483Z"
+  },
+  {
+    "id": 6,
+    "username": "ticaires",
+    "password": "$2b$10$RezmWEA1RjKXGbIy0.Ato.9Su7ok3qbjWkcWKfKIN7OnN4nJd2ir2",
+    "createdAt": "2025-11-13T12:47:15.971Z"
+  },
+  {
+    "id": 7,
+    "username": "tiago caires",
+    "password": "$2b$10$dm7IX1e.txLFlkFdRJUzVeAMU0Hizlso/eJFnPntBEg4QiYJvC5Va",
+    "createdAt": "2025-11-13T12:50:56.691Z"
+  },
+  {
+    "id": 8,
+    "username": "luqueta",
+    "password": "$2b$10$YeDX9zC6hXxhKR5zSfd6SuaYB9sHKZnhG8gq0xwH6oUcb1tXd1rTe",
+    "createdAt": "2025-11-13T15:00:47.790Z"
   }
 ]

@@ -1,6 +1,6 @@
 // src/context/AuthContext.jsx
 import { createContext, useContext, useEffect, useState } from 'react';
-import { login as apiLogin, register as apiRegister } from '../lib/api.js';
+import { login as apiLogin, register as apiRegister, createProfile } from '../lib/api.js';
 
 const AuthCtx = createContext();
 
@@ -8,7 +8,6 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [username, setUsername] = useState(localStorage.getItem('username') || '');
 
-  // persiste no localStorage
   useEffect(() => {
     if (token) localStorage.setItem('token', token);
     else localStorage.removeItem('token');
@@ -26,8 +25,13 @@ export function AuthProvider({ children }) {
     return res;
   }
 
-  async function register(user, pass) {
-    await apiRegister(user, pass); // { message, user }
+  // registra -> loga -> cria o card (se profile vier)
+  async function register(user, pass, profile) {
+    await apiRegister(user, pass);
+    const logged = await apiLogin(user, pass);
+    setToken(logged.token);
+    setUsername(user);
+    if (profile) await createProfile(profile);
     return true;
   }
 

@@ -13,9 +13,6 @@ import {
   uploadPhoto,
 } from '../lib/api.js'
 
-/* =======================
-   Helpers de campos "tags"
-   ======================= */
 function Tags({ label, items, setItems, placeholder = 'Digite e tecle Enter' }) {
   const [v, setV] = useState('')
   function onKeyDown(e) {
@@ -59,9 +56,6 @@ function Tags({ label, items, setItems, placeholder = 'Digite e tecle Enter' }) 
   )
 }
 
-/* ======================================
-   Helper para listas de objetos (CRUD UI)
-   ====================================== */
 function ObjList({ label, items, setItems, schema }) {
   function add() {
     setItems([...items, { ...schema }])
@@ -117,19 +111,19 @@ function ObjList({ label, items, setItems, schema }) {
   )
 }
 
-/* =====================
-   Página de Registro
-   ===================== */
 export default function RegisterPage() {
-  const { login: authLogin } = useAuth()
+  const { login: authLogin, isAuth } = useAuth()
   const nav = useNavigate()
 
-  // Conta
+  // Se já estiver logado e cair aqui, manda para /perfis
+  useEffect(() => {
+    if (isAuth) nav('/perfis', { replace: true })
+  }, [isAuth, nav])
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
 
-  // Perfil (todos os campos do JSON)
   const [nome, setNome] = useState('')
   const [foto, setFoto] = useState('https://i.pravatar.cc/150')
   const [cargo, setCargo] = useState('')
@@ -139,7 +133,6 @@ export default function RegisterPage() {
 
   const [habilidadesTecnicas, setHabilidadesTecnicas] = useState([])
   const [softSkills, setSoftSkills] = useState([])
-
   const [experiencias, setExperiencias] = useState([])
   const [formacao, setFormacao] = useState([])
   const [projetos, setProjetos] = useState([])
@@ -162,7 +155,6 @@ export default function RegisterPage() {
     })
   }, [])
 
-  // Tema
   function toggleTheme() {
     const root = document.documentElement
     const isDark = root.classList.contains('dark')
@@ -175,7 +167,6 @@ export default function RegisterPage() {
     }
   }
 
-  // Galeria de avatares + upload
   const gallery = Array.from({ length: 12 }, (_, i) => `https://i.pravatar.cc/150?img=${i + 10}`)
 
   async function onUpload(e) {
@@ -192,7 +183,6 @@ export default function RegisterPage() {
     }
   }
 
-  // IA: extrair skills/área + melhorar resumo
   async function handleAISmartFill() {
     try {
       setAiLoading(true)
@@ -223,7 +213,6 @@ export default function RegisterPage() {
     }
   }
 
-  // IA: pré-visualizar possíveis conexões
   async function previewMatches() {
     try {
       setAiLoading(true)
@@ -242,7 +231,6 @@ export default function RegisterPage() {
     }
   }
 
-  // Enviar cadastro + perfil
   async function onSubmit(e) {
     e.preventDefault()
     if (password !== confirm) return alert('Senhas diferentes')
@@ -271,16 +259,18 @@ export default function RegisterPage() {
       await apiRegister(username, password)
       const { token } = await apiLogin(username, password)
       if (!token) throw new Error('Falha no login automático')
-      // salva no AuthContext/localStorage via hook
+
+      // atualiza contexto + localStorage
       await authLogin(username, password)
 
+      // cria o card no JSON
       await createProfile(profile)
+
       alert('Perfil criado com sucesso!')
-      // força a Home refazer fetch
-      nav('/?_t=' + Date.now())
+      nav('/perfis') // ← vai para a lista de cards
     } catch (err) {
       console.error(err)
-      alert(err.message || 'Erro ao criar perfil')
+      alert(err?.response?.data?.error || err.message || 'Erro ao criar perfil')
     } finally {
       setSubmitting(false)
     }
@@ -358,7 +348,7 @@ export default function RegisterPage() {
               <input
                 value={cargo}
                 onChange={e => setCargo(e.target.value)}
-                placeholder="Cargo"
+                placeholder="Cargo / Profissão"
                 className="px-3 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-sm outline-none"
               />
               <input
@@ -380,7 +370,7 @@ export default function RegisterPage() {
                 value={resumo}
                 onChange={e => setResumo(e.target.value)}
                 rows={3}
-                placeholder="Resumo"
+                placeholder="Sobre mim / Resumo"
                 className="px-3 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-sm outline-none sm:col-span-2"
               />
             </div>
@@ -480,7 +470,6 @@ export default function RegisterPage() {
             placeholder="Ex.: Sustentabilidade, Esportes"
           />
 
-          {/* Ações de IA */}
           <div className="flex flex-wrap gap-3">
             <button
               type="button"
@@ -499,23 +488,6 @@ export default function RegisterPage() {
               {aiLoading ? 'Buscando…' : 'Ver possíveis conexões'}
             </button>
           </div>
-
-          {/* Matches */}
-          {!!aiMatches.length && (
-            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-3">
-              <h3 className="font-medium mb-2">Conexões sugeridas</h3>
-              <ul className="text-sm space-y-1">
-                {aiMatches.map(m => (
-                  <li key={m.id} className="flex items-center gap-2">
-                    <img src={m.foto} className="h-6 w-6 rounded-full" />
-                    <span>
-                      {m.nome} — <span className="text-zinc-500">{m.cargo}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
 
           <button
             type="submit"
