@@ -158,7 +158,7 @@ export default function Home() {
           {/* ── LOGO + título ───────────────────────────────────────────── */}
           <div className="flex items-center gap-2 flex-1">
             {/* pega do /public */}
-            <img src="/skillup-logo.png" alt="SkillUp IA" className="h-8 w-8 select-none" />
+            <img src=".public/skillup-logo.png" alt="SkillUp IA" className="h-16 w-16 select-none" />
             <span className="font-semibold text-lg">SkillUp IA</span>
           </div>
 
