@@ -1,12 +1,63 @@
 /* src/index.css */
 
-/* 👇 Essa diretiva é essencial e deve vir antes do import */
+/* 1) aponta pro teu tailwind.config.js */
 @config "../tailwind.config.js";
 
-/* 👇 Importa o núcleo do Tailwind (substitui o antigo base/components/utilities) */
+/* 2) carrega o núcleo do Tailwind v4 */
 @import "tailwindcss";
 
-/* (Opcional) transição suave ao trocar de tema */
+/* 3) ajustes globais simples */
 html {
   transition: background-color 0.3s, color 0.3s;
 }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+img, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* 4) componentes utilitários reutilizáveis da UI */
+@layer components {
+  .ui-card {
+    @apply rounded-2xl bg-white/95 dark:bg-zinc-900/90 backdrop-blur
+           shadow p-6 sm:p-8;
+  }
+  .ui-section {
+    @apply rounded-xl border border-zinc-200 dark:border-zinc-800
+           bg-white/70 dark:bg-zinc-900/60 p-4 sm:p-5 space-y-3;
+  }
+  .ui-label {
+    @apply text-xs font-medium text-zinc-700 dark:text-zinc-300;
+  }
+  .ui-hint {
+    @apply text-[11px] text-zinc-500 dark:text-zinc-400;
+  }
+  .ui-input {
+    @apply w-full px-3 py-2 rounded-xl bg-white dark:bg-zinc-900
+           border border-zinc-300 dark:border-zinc-700 outline-none
+           placeholder-zinc-400
+           focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+  }
+  .ui-tab {
+    @apply px-3 py-1.5 rounded-md text-sm;
+  }
+  .ui-btn-primary {
+    @apply w-full py-2 rounded-xl bg-indigo-600 text-white hover:opacity-95 disabled:opacity-60;
+  }
+  .ui-badge {
+    @apply inline-flex items-center gap-2 text-[11px] font-medium
+           px-2 py-1 rounded-full bg-indigo-50 text-indigo-700
+           dark:bg-indigo-500/15 dark:text-indigo-300;
+  }
+}
+
+/* 5) detalhezinho para <kbd> usado nas dicas */
+@layer base {
+  kbd {
+    @apply px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700
+           bg-zinc-100 dark:bg-zinc-800 text-[10px] font-mono;
+  }
+}
+
