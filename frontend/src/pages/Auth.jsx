@@ -183,10 +183,17 @@ export default function AuthPage() {
       <div className="relative z-10 grid place-items-center px-4 py-12">
         <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8">
 
-          {/* Lado esquerdo */}
+          {/* Lado esquerdo com SEU LOGO */}
           <div className="hidden lg:flex items-center justify-center">
             <div className="text-center">
-              <Brand size={96} stacked />
+              {/* Usa exclusivamente o arquivo do /public, como você pediu */}
+              <img
+                src="/public/skillup-logo.png"
+                alt="SkillUp IA"
+                className="mx-auto h-24 w-24 select-none"
+              />
+              {/* Você ainda pode manter o Brand abaixo, se quiser o texto estilizado juntos */}
+              {/* <Brand size={96} stacked /> */}
               <h1 className="mt-6 text-3xl font-semibold text-white">
                 Conecte talentos. Potencialize times.
               </h1>
@@ -199,7 +206,15 @@ export default function AuthPage() {
           {/* Card de autenticação */}
           <div className="ui-card">
             <div className="flex items-center justify-between">
-              <Brand size={36} />
+              {/* Logo também no topo do card */}
+              <img
+                src="/public/skillup-logo.png"
+                alt="SkillUp IA"
+                className="h-9 w-9"
+              />
+              {/* Se quiser manter o componente de marca ao lado, pode deixar: */}
+              {/* <Brand size={36} /> */}
+
               <div className="grid grid-cols-2 gap-2 bg-zinc-100 rounded-lg p-1">
                 <button
                   onClick={() => setTab("login")}

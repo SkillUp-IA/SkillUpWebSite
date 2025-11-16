@@ -3,7 +3,13 @@ import axios from "axios";
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-const api = axios.create({ baseURL: API_URL });
+// Instância Axios com timeout e baseURL
+const api = axios.create({
+  baseURL: API_URL,
+  timeout: 12000,
+});
+
+// ---- Interceptors ----
 
 // Injeta token em todas as requisições
 api.interceptors.request.use((config) => {
@@ -11,6 +17,19 @@ api.interceptors.request.use((config) => {
   if (t) config.headers.Authorization = `Bearer ${t}`;
   return config;
 });
+
+// Normaliza mensagens de erro
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    const msg =
+      err?.response?.data?.error ||
+      err?.response?.data?.message ||
+      err?.message ||
+      "Erro de comunicação com o servidor";
+    return Promise.reject(new Error(msg));
+  }
+);
 
 /* ========= AUTH ========= */
 export async function login(username, password) {
@@ -31,38 +50,40 @@ export async function createProfile(profile) {
 
 export async function fetchProfiles({ page = 1, pageSize = 60 } = {}) {
   const { data } = await api.get("/profiles", { params: { page, pageSize } });
-  return data.items ?? data; // compatível com Home.jsx
+  // suporta API que responde { items: [...] } ou array direto
+  return data.items ?? data;
 }
 
 /* ========= IA (SUGESTÕES) ========= */
 export async function aiSuggest(payload) {
   try {
     const { data } = await api.post("/ai/suggest", payload);
-    return data; // { items: [...] }
+    return data || { items: [] };
   } catch {
-    return { items: [] }; // fallback
+    return { items: [] };
   }
 }
 
 /* ========= IA (EXTRACT + SUMMARY) =========
-   Chamam endpoints caso existam; se não, retornam um fallback local. */
+   Se o backend não tiver essas rotas, usa um fallback local. */
 export async function aiExtract(text) {
   try {
     const { data } = await api.post("/ai/extract", { text });
-    // esperado: { habilidadesTecnicas:[], softSkills:[], area:"..." }
     return data || { habilidadesTecnicas: [], softSkills: [], area: "" };
   } catch {
-    // heurística simples como quebra-galho
     const lower = String(text || "").toLowerCase();
     const skills = [];
-    ["react", "node", "java", "c#", "python", "sql", "docker", "aws", "tailwind"]
-      .forEach(k => lower.includes(k) && skills.push(k[0].toUpperCase() + k.slice(1)));
+    ["react", "node", "java", "c#", "python", "sql", "docker", "aws", "tailwind"].forEach((k) => {
+      if (lower.includes(k)) skills.push(k[0].toUpperCase() + k.slice(1));
+    });
     return {
       habilidadesTecnicas: skills,
       softSkills: [],
-      area: lower.includes("dados") ? "Dados"
-           : lower.includes("design") ? "Design"
-           : "Desenvolvimento",
+      area: lower.includes("dados")
+        ? "Dados"
+        : lower.includes("design")
+        ? "Design"
+        : "Desenvolvimento",
     };
   }
 }
@@ -70,19 +91,19 @@ export async function aiExtract(text) {
 export async function aiSummary(payload) {
   try {
     const { data } = await api.post("/ai/summary", payload);
-    // esperado: { resumo:"...", skillsSugeridas:[] }
     return data || { resumo: "", skillsSugeridas: [] };
   } catch {
     const { nome = "", cargo = "", localizacao = "", area = "" } = payload || {};
     return {
-      resumo: `${nome || "Profissional"} atuando em ${cargo || "sua área"}, localizado em ${localizacao || "..."}. Foco em ${area || "Tecnologia"} e evolução contínua.`,
+      resumo: `${nome || "Profissional"} atuando em ${cargo || "sua área"}, localizado em ${
+        localizacao || "..."
+      }. Foco em ${area || "Tecnologia"} e evolução contínua.`,
       skillsSugeridas: [],
     };
   }
 }
 
-/* ========= UPLOAD DE FOTO =========
-   Usa a rota /upload do seu backend (multer). */
+/* ========= UPLOAD DE FOTO ========= */
 export async function uploadPhoto(file) {
   const form = new FormData();
   form.append("file", file);
@@ -95,15 +116,12 @@ export async function uploadPhoto(file) {
 
 export default api;
 
-// ===== RECOMMEND (similaridade de perfis) =====
+/* ========= RECOMMEND ========= */
 export async function recommendProfile(payload) {
-  // payload pode ser { id } ou { skills: [...], area, city, k }
   try {
     const { data } = await api.post("/recommend", payload);
-    // esperado: { items: [...] }
     return data || { items: [] };
   } catch {
-    // fallback se o endpoint não existir
     return { items: [] };
   }
 }

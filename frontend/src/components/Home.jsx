@@ -157,8 +157,16 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex flex-wrap gap-3 items-center">
           {/* ── LOGO + título ───────────────────────────────────────────── */}
           <div className="flex items-center gap-2 flex-1">
-            {/* pega do /public */}
-            <img src=".public/skillup-logo.png" alt="SkillUp IA" className="h-16 w-16 select-none" />
+            {/* tenta /public/skillup-logo.png; se não existir (Vite), faz fallback pra /skillup-logo.png */}
+            <img
+              src="/public/skillup-logo.png"
+              onError={(e) => {
+                e.currentTarget.onerror = null
+                e.currentTarget.src = '/skillup-logo.png'
+              }}
+              alt="SkillUp IA"
+              className="h-8 w-8 select-none"
+            />
             <span className="font-semibold text-lg">SkillUp IA</span>
           </div>
 

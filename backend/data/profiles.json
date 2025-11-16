@@ -3411,6 +3411,23 @@
       "Esportes",
       "Sustentabilidade"
     ]
+  },
+  {
+    "id": 61,
+    "nome": "Teste Card",
+    "foto": "https://i.pravatar.cc/150",
+    "cargo": "Eng de Software",
+    "resumo": "",
+    "localizacao": "São Paulo - Sp",
+    "area": "Sistemas",
+    "habilidadesTecnicas": [],
+    "softSkills": [],
+    "experiencias": [],
+    "formacao": [],
+    "projetos": [],
+    "certificacoes": [],
+    "idiomas": [],
+    "areasInteresse": [],
+    "createdAt": "2025-11-16T16:35:50.784Z"
   }
 ]
-  

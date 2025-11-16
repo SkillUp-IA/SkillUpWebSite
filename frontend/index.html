@@ -7,21 +7,21 @@
     <title>SkillUp IA</title>
     <meta name="description" content="SkillUp IA — encontre e apresente profissionais por habilidades, área e localização." />
 
-    <!-- Favicon / PWA básicos -->
-    <link rel="icon" type="image/png" href="/skillup-favicon.png" />
-    <link rel="apple-touch-icon" href="/skillup-favicon.png" />
+    <!-- Favicon / App Icons (forçando o caminho /public/skillup-logo.png) -->
+    <link rel="icon" href="/public/skillup-logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/public/skillup-logo.png" />
+    <link rel="shortcut icon" href="/public/skillup-logo.png" />
+    <link rel="preload" as="image" href="/public/skillup-logo.png" />
 
-    <!-- Cores da marca -->
-    <!-- claro -->
+    <!-- Cores da UI do navegador -->
     <meta name="theme-color" content="#0B2A44" media="(prefers-color-scheme: light)" />
-    <!-- escuro -->
     <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph / compartilhamento -->
     <meta property="og:title" content="SkillUp IA" />
     <meta property="og:description" content="Conecte talentos. Potencialize times." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/skillup-favicon.png" />
+    <meta property="og:image" content="/public/skillup-logo.png" />
 
     <!-- Aplica o tema ANTES do React renderizar -->
     <script>

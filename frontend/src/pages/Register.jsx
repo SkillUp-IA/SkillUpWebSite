@@ -287,11 +287,15 @@ export default function RegisterPage() {
     softSkills,
   }
 
+  /* ====== Layout: esquerda FIXA + direita ROLÁVEL ====== */
+  const LEFT_W = 560 // px (lg+)
+
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
-      {/* Topbar simples com toggle de tema */}
-      <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
-        <h1 className="text-xl font-semibold">Criar conta + Perfil</h1>
+    <div className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+
+      {/* Topbar */}
+      <div className="px-4 py-4 lg:pl-[calc(1rem+560px)] flex items-center justify-between sticky top-0 z-40 bg-zinc-50/70 dark:bg-zinc-950/70 backdrop-blur border-b border-zinc-200 dark:border-zinc-800">
+        <h1 className="text-lg font-semibold">Criar conta + Perfil</h1>
         <button
           onClick={toggleTheme}
           className="px-3 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-800 text-sm"
@@ -300,292 +304,305 @@ export default function RegisterPage() {
         </button>
       </div>
 
-      {/* Layout: esquerda fixa (hero) + direita rolável (form + preview) */}
-      <div className="max-w-6xl mx-auto px-4 pb-8 grid lg:grid-cols-[1fr_minmax(0,720px)] gap-6">
-        {/* Coluna esquerda fixa (lg+) */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-6 h-[calc(100vh-3rem)] rounded-2xl
-                          bg-gradient-to-br from-white via-blue-50 to-blue-100
-                          border border-blue-100
-                          flex items-center justify-center p-10">
-            <div className="text-center max-w-md">
-              <div className="flex items-center justify-center mb-6 opacity-90">
-                <img src="/skillup-logo.png" alt="SkillUp IA" className="h-28 w-28 object-contain" />
-              </div>
-              <h2 className="text-3xl font-semibold text-blue-900">
-                Conecte talentos. Potencialize times.
-              </h2>
-              <p className="mt-3 text-blue-800/70">
-                Encontre profissionais por habilidades, área e localização — rápido e com estilo.
-              </p>
-            </div>
+      {/* ESQUERDA FIXA (apenas em lg+) */}
+      <aside
+        className="hidden lg:flex fixed inset-y-0 left-0 items-center justify-center p-10"
+        style={{ width: `${LEFT_W}px` }}
+      >
+        <div className="text-center max-w-md rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-blue-100 p-10">
+          <div className="flex items-center justify-center mb-6 opacity-90">
+            <img src="/skillup-logo.png" alt="SkillUp IA" className="h-28 w-28 object-contain" />
           </div>
-        </aside>
+          <h2 className="text-3xl font-semibold text-blue-900">
+            Conecte talentos. Potencialize times.
+          </h2>
+          <p className="mt-3 text-blue-800/70">
+            Encontre profissionais por habilidades, área e localização — rápido e com estilo.
+          </p>
+        </div>
+      </aside>
 
-        {/* Coluna direita: painel rolável */}
-        <section className="ui-card max-h-[calc(100vh-3rem)] scroll-y-panel space-y-6">
-          {/* Formulário */}
-          <form onSubmit={onSubmit} className="register-animate space-y-6">
-            {/* Conta */}
-            <section className="ui-section">
-              <div className="ui-badge">Passo 1</div>
-              <h2 className="font-semibold">Conta de acesso</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="ui-label">Usuário *</label>
-                  <input
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                    placeholder="Usuário"
-                    className="ui-input"
-                  />
-                </div>
-                <div>
-                  <label className="ui-label">Senha *</label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    placeholder="Senha"
-                    className="ui-input"
-                  />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="ui-label">Confirmar *</label>
-                  <input
-                    type="password"
-                    value={confirm}
-                    onChange={e => setConfirm(e.target.value)}
-                    placeholder="Confirmar senha"
-                    className="ui-input"
-                  />
-                </div>
-              </div>
-              <p className="ui-hint">Os campos marcados com * são obrigatórios.</p>
-            </section>
+      {/* DIREITA: ocupa a viewport e ROLA sozinha (lg+) */}
+      <section
+        className="relative h-[calc(100vh-3.5rem)] overflow-y-auto px-4 py-6"
+        style={{ marginLeft: 0 }}
+      >
+        {/* Em lg+, desloca a largura da coluna fixa */}
+        <div className="max-w-6xl mx-auto">
+          <div className="hidden lg:block" style={{ marginLeft: `${LEFT_W}px` }} />
 
-            {/* Perfil básico */}
-            <section className="ui-section">
-              <div className="ui-badge">Passo 2</div>
-              <h2 className="font-semibold">Perfil básico</h2>
+          <div className="lg:ml-[560px] grid lg:grid-cols-1 gap-6">
+            {/* Painel rolável com formulário + preview  */}
+            {/* light-form => força fundos brancos independentemente do tema */}
+            <div className="light-form ui-card space-y-6">
 
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div className="sm:col-span-2">
-                  <label className="ui-label">Nome (card) *</label>
-                  <input
-                    value={nome}
-                    onChange={e => setNome(e.target.value)}
-                    placeholder="Seu nome completo"
-                    className="ui-input"
-                  />
-                </div>
-                <div>
-                  <label className="ui-label">Cargo *</label>
-                  <input
-                    value={cargo}
-                    onChange={e => setCargo(e.target.value)}
-                    placeholder="Ex.: Eng. de Software"
-                    className="ui-input"
-                  />
-                </div>
-                <div>
-                  <label className="ui-label">Localização</label>
-                  <input
-                    value={localizacao}
-                    onChange={e => setLocalizacao(e.target.value)}
-                    placeholder="Cidade - UF"
-                    className="ui-input"
-                  />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="ui-label">Área</label>
-                  <select
-                    value={area}
-                    onChange={e => setArea(e.target.value)}
-                    className="ui-input"
-                  >
-                    {areasOpts.map(a => (<option key={a}>{a}</option>))}
-                  </select>
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="ui-label">Sobre mim / Resumo</label>
-                  <textarea
-                    value={resumo}
-                    onChange={e => setResumo(e.target.value)}
-                    rows={3}
-                    placeholder="Fale um pouco sobre você…"
-                    className="ui-input"
-                  />
-                </div>
-              </div>
+              {/* Formulário */}
+              <form onSubmit={onSubmit} className="register-animate space-y-6">
+                {/* Conta */}
+                <section className="ui-section">
+                  <div className="ui-badge">Passo 1</div>
+                  <h2 className="font-semibold">Conta de acesso</h2>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-sm text-zinc-500">Usuário *</label>
+                      <input
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        placeholder="Usuário"
+                        className="ui-input"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm text-zinc-500">Senha *</label>
+                      <input
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        placeholder="Senha"
+                        className="ui-input"
+                      />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <label className="text-sm text-zinc-500">Confirmar *</label>
+                      <input
+                        type="password"
+                        value={confirm}
+                        onChange={e => setConfirm(e.target.value)}
+                        placeholder="Confirmar senha"
+                        className="ui-input"
+                      />
+                    </div>
+                  </div>
+                  <p className="ui-hint">Os campos marcados com * são obrigatórios.</p>
+                </section>
 
-              {/* Foto */}
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div className="space-y-2">
-                  <label className="ui-label">URL da foto</label>
-                  <input
-                    value={foto}
-                    onChange={e => setFoto(e.target.value)}
-                    placeholder="https://..."
-                    className="ui-input"
-                  />
-                  <label className="ui-label">Upload</label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={onUpload}
-                    className="block text-sm file:mr-3 file:px-3 file:py-2 file:rounded-xl file:bg-zinc-100 dark:file:bg-zinc-800"
-                  />
-                  {uploading && <p className="ui-hint">Enviando...</p>}
-                </div>
-                <div className="space-y-2">
-                  <label className="ui-label">Galeria</label>
-                  <div className="grid grid-cols-6 gap-2">
-                    {gallery.map((g, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setFoto(g)}
-                        className={`rounded overflow-hidden border ${foto === g ? 'border-emerald-500' : 'border-transparent'}`}
+                {/* Perfil básico */}
+                <section className="ui-section">
+                  <div className="ui-badge">Passo 2</div>
+                  <h2 className="font-semibold">Perfil básico</h2>
+
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div className="sm:col-span-2">
+                      <label className="text-sm text-zinc-500">Nome (card) *</label>
+                      <input
+                        value={nome}
+                        onChange={e => setNome(e.target.value)}
+                        placeholder="Seu nome completo"
+                        className="ui-input"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm text-zinc-500">Cargo *</label>
+                      <input
+                        value={cargo}
+                        onChange={e => setCargo(e.target.value)}
+                        placeholder="Ex.: Eng. de Software"
+                        className="ui-input"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm text-zinc-500">Localização</label>
+                      <input
+                        value={localizacao}
+                        onChange={e => setLocalizacao(e.target.value)}
+                        placeholder="Cidade - UF"
+                        className="ui-input"
+                      />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <label className="text-sm text-zinc-500">Área</label>
+                      <select
+                        value={area}
+                        onChange={e => setArea(e.target.value)}
+                        className="ui-input"
                       >
-                        <img src={g} className="h-12 w-12 object-cover" />
-                      </button>
+                        {areasOpts.map(a => (<option key={a}>{a}</option>))}
+                      </select>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <label className="text-sm text-zinc-500">Sobre mim / Resumo</label>
+                      <textarea
+                        value={resumo}
+                        onChange={e => setResumo(e.target.value)}
+                        rows={3}
+                        placeholder="Fale um pouco sobre você…"
+                        className="ui-input"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Foto */}
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div className="space-y-2">
+                      <label className="text-sm text-zinc-500">URL da foto</label>
+                      <input
+                        value={foto}
+                        onChange={e => setFoto(e.target.value)}
+                        placeholder="https://..."
+                        className="ui-input"
+                      />
+                      <label className="text-sm text-zinc-500">Upload</label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={onUpload}
+                        className="block text-sm file:mr-3 file:px-3 file:py-2 file:rounded-xl file:bg-zinc-100"
+                      />
+                      {uploading && <p className="ui-hint">Enviando...</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm text-zinc-500">Galeria</label>
+                      <div className="grid grid-cols-6 gap-2">
+                        {gallery.map((g, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => setFoto(g)}
+                            className={`rounded overflow-hidden border ${foto === g ? 'border-emerald-500' : 'border-transparent'}`}
+                          >
+                            <img src={g} className="h-12 w-12 object-cover" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Arrays principais */}
+                <section className="ui-section">
+                  <div className="flex items-center justify-between">
+                    <h2 className="font-semibold">Habilidades</h2>
+                    <span className="ui-badge">Campo de lista</span>
+                  </div>
+                  <Tags
+                    label="Habilidades técnicas"
+                    items={habilidadesTecnicas}
+                    setItems={setHabilidadesTecnicas}
+                    placeholder="Ex.: React, Docker, SQL"
+                  />
+                  <Tags
+                    label="Soft skills"
+                    items={softSkills}
+                    setItems={setSoftSkills}
+                    placeholder="Ex.: Comunicação, Liderança"
+                  />
+                </section>
+
+                <section className="ui-section">
+                  <h2 className="font-semibold">Experiências</h2>
+                  <ObjList
+                    label="Experiências"
+                    items={experiencias}
+                    setItems={setExperiencias}
+                    schema={{ empresa: '', cargo: '', inicio: '', fim: '', descricao: '' }}
+                  />
+                </section>
+
+                <section className="ui-section">
+                  <h2 className="font-semibold">Formação</h2>
+                  <ObjList
+                    label="Formação"
+                    items={formacao}
+                    setItems={setFormacao}
+                    schema={{ curso: '', instituicao: '', ano: '' }}
+                  />
+                </section>
+
+                <section className="ui-section">
+                  <h2 className="font-semibold">Projetos</h2>
+                  <ObjList
+                    label="Projetos"
+                    items={projetos}
+                    setItems={setProjetos}
+                    schema={{ titulo: '', link: '', descricao: '' }}
+                  />
+                </section>
+
+                <section className="ui-section">
+                  <h2 className="font-semibold">Outros</h2>
+                  <Tags
+                    label="Certificações"
+                    items={certificacoes}
+                    setItems={setCertificacoes}
+                    placeholder="Ex.: AZ-900, AWS CCP"
+                  />
+                  <ObjList
+                    label="Idiomas"
+                    items={idiomas}
+                    setItems={setIdiomas}
+                    schema={{ idioma: '', nivel: '' }}
+                  />
+                  <Tags
+                    label="Áreas de interesse"
+                    items={areasInteresse}
+                    setItems={setAreasInteresse}
+                    placeholder="Ex.: Sustentabilidade, Esportes"
+                  />
+                </section>
+
+                {/* Ações de IA */}
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={handleAISmartFill}
+                    disabled={aiLoading}
+                    className="px-3 py-2 rounded-xl bg-blue-600 text-white text-sm disabled:opacity-60"
+                  >
+                    {aiLoading ? 'Processando…' : 'Preencher com IA (skills/área/resumo)'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={previewMatches}
+                    disabled={aiLoading}
+                    className="px-3 py-2 rounded-xl bg-indigo-600 text-white text-sm disabled:opacity-60"
+                  >
+                    {aiLoading ? 'Buscando…' : 'Ver possíveis conexões'}
+                  </button>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="ui-btn-primary"
+                >
+                  {submitting ? 'Criando…' : 'Criar conta + Card'}
+                </button>
+              </form>
+
+              {/* Pré-visualização */}
+              <div className="register-animate ui-section">
+                <h2 className="text-lg font-semibold mb-2">Pré-visualização</h2>
+                <div className="w-full text-left rounded-2xl p-4 bg-white border border-zinc-200">
+                  <div className="flex items-center gap-4">
+                    <img src={preview.foto} alt={preview.nome} className="h-16 w-16 rounded-full object-cover" />
+                    <div>
+                      <h3 className="font-semibold text-lg">{preview.nome || 'Seu nome'}</h3>
+                      <p className="text-sm text-zinc-600">{preview.cargo || 'Seu cargo'}</p>
+                      <p className="text-xs text-zinc-500">
+                        {(preview.localizacao || 'Cidade - UF')} • {(preview.area || 'Área')}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm text-zinc-700 line-clamp-3">
+                    {preview.resumo || 'Resumo do seu perfil aparecerá aqui.'}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {(preview.habilidadesTecnicas || []).slice(0, 3).map((t, i) => (
+                      <span key={`${t}-${i}`} className="px-2 py-1 text-xs rounded-full bg-zinc-100">{t}</span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </section>
-
-            {/* Arrays principais */}
-            <section className="ui-section">
-              <div className="flex items-center justify-between">
-                <h2 className="font-semibold">Habilidades</h2>
-                <span className="ui-badge">Campo de lista</span>
-              </div>
-              <Tags
-                label="Habilidades técnicas"
-                items={habilidadesTecnicas}
-                setItems={setHabilidadesTecnicas}
-                placeholder="Ex.: React, Docker, SQL"
-              />
-              <Tags
-                label="Soft skills"
-                items={softSkills}
-                setItems={setSoftSkills}
-                placeholder="Ex.: Comunicação, Liderança"
-              />
-            </section>
-
-            <section className="ui-section">
-              <h2 className="font-semibold">Experiências</h2>
-              <ObjList
-                label="Experiências"
-                items={experiencias}
-                setItems={setExperiencias}
-                schema={{ empresa: '', cargo: '', inicio: '', fim: '', descricao: '' }}
-              />
-            </section>
-
-            <section className="ui-section">
-              <h2 className="font-semibold">Formação</h2>
-              <ObjList
-                label="Formação"
-                items={formacao}
-                setItems={setFormacao}
-                schema={{ curso: '', instituicao: '', ano: '' }}
-              />
-            </section>
-
-            <section className="ui-section">
-              <h2 className="font-semibold">Projetos</h2>
-              <ObjList
-                label="Projetos"
-                items={projetos}
-                setItems={setProjetos}
-                schema={{ titulo: '', link: '', descricao: '' }}
-              />
-            </section>
-
-            <section className="ui-section">
-              <h2 className="font-semibold">Outros</h2>
-              <Tags
-                label="Certificações"
-                items={certificacoes}
-                setItems={setCertificacoes}
-                placeholder="Ex.: AZ-900, AWS CCP"
-              />
-              <ObjList
-                label="Idiomas"
-                items={idiomas}
-                setItems={setIdiomas}
-                schema={{ idioma: '', nivel: '' }}
-              />
-              <Tags
-                label="Áreas de interesse"
-                items={areasInteresse}
-                setItems={setAreasInteresse}
-                placeholder="Ex.: Sustentabilidade, Esportes"
-              />
-            </section>
-
-            {/* Ações de IA */}
-            <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={handleAISmartFill}
-                disabled={aiLoading}
-                className="px-3 py-2 rounded-xl bg-blue-600 text-white text-sm disabled:opacity-60"
-              >
-                {aiLoading ? 'Processando…' : 'Preencher com IA (skills/área/resumo)'}
-              </button>
-              <button
-                type="button"
-                onClick={previewMatches}
-                disabled={aiLoading}
-                className="px-3 py-2 rounded-xl bg-indigo-600 text-white text-sm disabled:opacity-60"
-              >
-                {aiLoading ? 'Buscando…' : 'Ver possíveis conexões'}
-              </button>
-            </div>
-
-            <button
-              type="submit"
-              disabled={submitting}
-              className="ui-btn-primary"
-            >
-              {submitting ? 'Criando…' : 'Criar conta + Card'}
-            </button>
-          </form>
-
-          {/* Pré-visualização (rolando junto com o form) */}
-          <div className="register-animate ui-section">
-            <h2 className="text-lg font-semibold mb-2">Pré-visualização</h2>
-            <div className="w-full text-left rounded-2xl p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-              <div className="flex items-center gap-4">
-                <img src={preview.foto} alt={preview.nome} className="h-16 w-16 rounded-full object-cover" />
-                <div>
-                  <h3 className="font-semibold text-lg">{preview.nome || 'Seu nome'}</h3>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-300">{preview.cargo || 'Seu cargo'}</p>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    {(preview.localizacao || 'Cidade - UF')} • {(preview.area || 'Área')}
+                {!!aiMatches.length && (
+                  <p className="ui-hint mt-2">
+                    Conexões sugeridas: {aiMatches.map(m => m.nome).join(', ')}
                   </p>
-                </div>
-              </div>
-              <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-200 line-clamp-3">
-                {preview.resumo || 'Resumo do seu perfil aparecerá aqui.'}
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {(preview.habilidadesTecnicas || []).slice(0, 3).map((t, i) => (
-                  <span key={`${t}-${i}`} className="px-2 py-1 text-xs rounded-full bg-zinc-100 dark:bg-zinc-800">
-                    {t}
-                  </span>
-                ))}
+                )}
+                <p className="ui-hint mt-2">Ao enviar, seu card entra automaticamente na Home.</p>
               </div>
             </div>
-            <p className="ui-hint mt-2">Ao enviar, seu card entra automaticamente na Home.</p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }
