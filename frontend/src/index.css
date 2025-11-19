@@ -1,5 +1,3 @@
-/* src/index.css */
-
 /* 1) aponta pro teu tailwind.config.js */
 @config "../tailwind.config.js";
 
@@ -13,15 +11,22 @@ html {
 * {
   -webkit-tap-highlight-color: transparent;
 }
-img, svg, video, canvas {
+img,
+svg,
+video,
+canvas {
   display: block;
   max-width: 100%;
 }
 
 /* respeita usuários que preferem menos animação */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -32,11 +37,13 @@ img, svg, video, canvas {
 @layer components {
   .ui-card {
     @apply rounded-2xl bg-white/95 dark:bg-zinc-900/90 backdrop-blur
-           shadow p-6 sm:p-8;
+           shadow-lg shadow-slate-900/10
+           border border-zinc-200 dark:border-zinc-800
+           p-6 sm:p-8;
   }
   .ui-section {
     @apply rounded-xl border border-zinc-200 dark:border-zinc-800
-           bg-white/70 dark:bg-zinc-900/60 p-4 sm:p-5 space-y-3;
+           bg-white/80 dark:bg-zinc-900/60 p-4 sm:p-5 space-y-3;
   }
   .ui-label {
     @apply text-xs font-medium text-zinc-700 dark:text-zinc-300;
@@ -47,25 +54,28 @@ img, svg, video, canvas {
   .ui-input {
     @apply w-full px-3 py-2 rounded-xl bg-white dark:bg-zinc-900
            border border-zinc-300 dark:border-zinc-700 outline-none
-           placeholder-zinc-400
+           text-zinc-900 dark:text-zinc-100
+           placeholder-zinc-400 dark:placeholder-zinc-500
            focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
   }
   .ui-tab {
     @apply px-3 py-1.5 rounded-md text-sm;
   }
   .ui-btn-primary {
-    @apply w-full py-2 rounded-xl bg-blue-600 text-white hover:opacity-95 disabled:opacity-60;
+    @apply w-full py-2 rounded-xl bg-blue-600 text-white
+           hover:bg-blue-500 disabled:opacity-60;
   }
   .ui-badge {
     @apply inline-flex items-center gap-2 text-[11px] font-medium
-           px-2 py-1 rounded-full bg-blue-50 text-blue-700
+           px-2 py-1 rounded-full
+           bg-blue-50 text-blue-700
            dark:bg-blue-500/15 dark:text-blue-300;
   }
 
   /* --- Escopo claro para a coluna de cadastro (Register) --- */
   .light-form .ui-card,
   .light-form .ui-section {
-    @apply bg-white dark:bg-white border-zinc-200 dark:border-zinc-200;
+    @apply bg-white border-zinc-200;
   }
   .light-form .ui-label {
     @apply text-zinc-700;
@@ -74,13 +84,13 @@ img, svg, video, canvas {
     @apply text-zinc-500;
   }
   .light-form .ui-input {
-    @apply bg-white dark:bg-white text-zinc-900 dark:text-zinc-900
-           border-zinc-300 dark:border-zinc-300
+    @apply bg-white text-zinc-900
+           border-zinc-300
            placeholder-zinc-400 focus:ring-blue-500 focus:border-blue-500;
   }
 }
 
-/* 5) detalhezinho para <kbd> usado nas dicas */
+/* 5) <kbd> usado nas dicas */
 @layer base {
   kbd {
     @apply px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700
@@ -90,7 +100,6 @@ img, svg, video, canvas {
 
 /* 6) utilitários extras */
 @layer utilities {
-  /* Painel com rolagem vertical suave (coluna do formulário) */
   .scroll-y-panel {
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -98,12 +107,11 @@ img, svg, video, canvas {
     scrollbar-gutter: stable both-edges;
   }
 
-  /* Estilo do scrollbar (webkit) */
   .scroll-y-panel::-webkit-scrollbar {
     width: 10px;
   }
   .scroll-y-panel::-webkit-scrollbar-thumb {
-    background: rgba(37, 99, 235, 0.35); /* blue-600 ~35% */
+    background: rgba(37, 99, 235, 0.35);
     border-radius: 9999px;
   }
   .scroll-y-panel:hover::-webkit-scrollbar-thumb {
@@ -114,23 +122,22 @@ img, svg, video, canvas {
   }
 }
 
-/* 7) helpers de layout fixo (esquerda fixa + direita rolável) */
-html, body, #root { height: 100%; }
-
-/* Shell da página de registro/autenticação: impede rolagem do body */
-.auth-layout {
-  height: 100svh;   /* viewport real em mobile */
-  overflow: hidden; /* sem scroll no body */
+html,
+body,
+#root {
+  height: 100%;
 }
 
-/* Coluna esquerda fixa (use junto com hidden lg:block no JSX) */
+/* classes antigas de layout continuam aqui caso você use em outro lugar */
+.auth-layout {
+  height: 100svh;
+  overflow: hidden;
+}
 .auth-left {
   position: sticky;
   top: 0;
   height: 100svh;
 }
-
-/* Coluna direita com rolagem própria */
 .auth-right {
   height: 100svh;
   overflow-y: auto;

@@ -1,127 +1,192 @@
-// src/components/Modal.jsx
-import { useEffect, useState } from 'react'
-import anime from 'animejs'
-import { recommendProfile } from '../lib/api.js'
-import { useAuth } from '../context/AuthContext.jsx'
+import { useEffect, useState } from "react";
+import anime from "animejs";
+import { aiLearningPlan, recommendProfile } from "../lib/api.js";
+import { useAuth } from "../context/AuthContext.jsx";
 
-const RECO_STORAGE_KEY = 'skillup_recomendados'
+const RECO_STORAGE_KEY = "skillup_recomendados";
 
 export default function Modal({ open, onClose, data }) {
-  // ✅ 1) Se não estiver aberto ou sem dados, nem monta hooks
-  if (!open || !data) return null
+  if (!open || !data) return null;
 
-  // ✅ 2) TODOS os hooks sempre na mesma ordem
-  const { username } = useAuth()
-  const [msg, setMsg] = useState('Curti seu perfil! Vamos conectar?')
-  const [sending, setSending] = useState(false)
-  const [isRecommended, setIsRecommended] = useState(false)
+  const { username } = useAuth();
+  const [msg, setMsg] = useState("Curti seu perfil! Vamos conectar?");
+  const [sending, setSending] = useState(false);
+  const [isRecommended, setIsRecommended] = useState(false);
+  const [plan, setPlan] = useState(null);
+  const [loadingPlan, setLoadingPlan] = useState(false);
+  const [planProgress, setPlanProgress] = useState([]);
+  const [expandedStepId, setExpandedStepId] = useState(null);
 
-  // Dados do perfil com valores padrão
   const {
     id,
-    nome = 'Nome não informado',
-    cargo = 'Cargo não informado',
-    localizacao = 'Localização não informada',
-    resumo = '',
+    nome = "Nome não informado",
+    cargo = "Cargo não informado",
+    localizacao = "Localização não informada",
+    resumo = "",
     foto,
     habilidadesTecnicas = [],
     softSkills = [],
     experiencias = [],
-  } = data || {}
+  } = data || {};
 
-  // Verifica se esse perfil já está recomendado no localStorage
+  // Marca se o perfil já foi recomendado localmente
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
     try {
-      const raw = localStorage.getItem(RECO_STORAGE_KEY)
-      const parsed = raw ? JSON.parse(raw) : []
-      const list = Array.isArray(parsed) ? parsed : []
-      setIsRecommended(list.includes(id))
+      const raw = localStorage.getItem(RECO_STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      const list = Array.isArray(parsed) ? parsed : [];
+      setIsRecommended(list.includes(id));
     } catch (e) {
-      console.error('Erro ao ler recomendações locais', e)
-      setIsRecommended(false)
+      console.error("Erro ao ler recomendações locais", e);
+      setIsRecommended(false);
     }
-  }, [id])
+  }, [id]);
+
+  // Progresso da trilha de aprendizado por perfil
+  useEffect(() => {
+    if (!id || typeof window === "undefined") return;
+    try {
+      const raw = localStorage.getItem(`skillup_plan_progress_${id}`);
+      const parsed = raw ? JSON.parse(raw) : [];
+      setPlanProgress(Array.isArray(parsed) ? parsed : []);
+    } catch {
+      setPlanProgress([]);
+    }
+    setPlan(null);
+    setLoadingPlan(false);
+  }, [id]);
 
   function salvarRecomendacaoLocal(profileId) {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
     try {
-      const raw = localStorage.getItem(RECO_STORAGE_KEY)
-      const prev = raw ? JSON.parse(raw) : []
-      const list = Array.isArray(prev) ? prev : []
+      const raw = localStorage.getItem(RECO_STORAGE_KEY);
+      const prev = raw ? JSON.parse(raw) : [];
+      const list = Array.isArray(prev) ? prev : [];
       if (!list.includes(profileId)) {
-        list.push(profileId)
-        localStorage.setItem(RECO_STORAGE_KEY, JSON.stringify(list))
+        list.push(profileId);
+        localStorage.setItem(RECO_STORAGE_KEY, JSON.stringify(list));
       }
     } catch (e) {
-      console.error('Erro ao salvar recomendação local', e)
+      console.error("Erro ao salvar recomendação local", e);
     }
   }
 
   function removerRecomendacaoLocal(profileId) {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
     try {
-      const raw = localStorage.getItem(RECO_STORAGE_KEY)
-      const prev = raw ? JSON.parse(raw) : []
-      const list = Array.isArray(prev) ? prev.filter((x) => x !== profileId) : []
-      localStorage.setItem(RECO_STORAGE_KEY, JSON.stringify(list))
+      const raw = localStorage.getItem(RECO_STORAGE_KEY);
+      const prev = raw ? JSON.parse(raw) : [];
+      const list = Array.isArray(prev)
+        ? prev.filter((x) => x !== profileId)
+        : [];
+      localStorage.setItem(RECO_STORAGE_KEY, JSON.stringify(list));
     } catch (e) {
-      console.error('Erro ao remover recomendação local', e)
+      console.error("Erro ao remover recomendação local", e);
     }
   }
 
   async function handleRecommend() {
     try {
-      setSending(true)
+      setSending(true);
 
       await recommendProfile({
         toId: id,
         message: msg,
-        from: username || 'guest',
-      })
+        from: username || "guest",
+      });
 
-      salvarRecomendacaoLocal(id)
-      setIsRecommended(true)
+      salvarRecomendacaoLocal(id);
+      setIsRecommended(true);
 
       anime({
-        targets: '#rec-ok',
+        targets: "#rec-ok",
         scale: [0.9, 1],
         opacity: [0, 1],
         duration: 400,
-        easing: 'easeOutQuad',
-      })
+        easing: "easeOutQuad",
+      });
 
-      alert('Recomendação enviada e perfil salvo nas suas sugestões!')
+      alert("Recomendação enviada e perfil salvo nas suas sugestões!");
     } catch (e) {
-      console.error(e)
-      alert(e?.message || 'Erro ao recomendar profissional.')
+      console.error(e);
+      alert(e?.message || "Erro ao recomendar profissional.");
     } finally {
-      setSending(false)
+      setSending(false);
     }
   }
 
   function handleUnrecommend() {
     try {
-      removerRecomendacaoLocal(id)
-      setIsRecommended(false)
-      alert('Recomendação removida das suas sugestões.')
+      removerRecomendacaoLocal(id);
+      setIsRecommended(false);
+      alert("Recomendação removida das suas sugestões.");
     } catch (e) {
-      console.error(e)
-      alert('Erro ao remover recomendação.')
+      console.error(e);
+      alert("Erro ao remover recomendação.");
     }
   }
 
-  // ✅ 3) JSX normal
+  async function handleGeneratePlan() {
+    try {
+      setLoadingPlan(true);
+      const res = await aiLearningPlan(data);
+      setPlan(res || null);
+    } catch (e) {
+      console.error(e);
+      alert("Erro ao gerar plano de aprendizado.");
+    } finally {
+      setLoadingPlan(false);
+    }
+  }
+
+  function toggleStep(stepId) {
+    if (!plan || !stepId || typeof window === "undefined") return;
+    setPlanProgress((prev) => {
+      const set = new Set(prev);
+      if (set.has(stepId)) set.delete(stepId);
+      else set.add(stepId);
+      const arr = Array.from(set);
+      localStorage.setItem(`skillup_plan_progress_${id}`, JSON.stringify(arr));
+      return arr;
+    });
+  }
+
+  function toggleStepDetails(stepId) {
+    setExpandedStepId((prev) => (prev === stepId ? null : stepId));
+  }
+
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
-      <div className="max-w-2xl w-full rounded-2xl bg-white dark:bg-zinc-900 p-6 shadow-lg">
+    <div
+      className="
+        fixed inset-0 z-50
+        bg-black/50 backdrop-blur-sm
+        flex items-center justify-center
+        p-4
+      "
+      onClick={onClose}
+    >
+      <div
+        className="
+          max-w-2xl w-full
+          max-h-[calc(100vh-32px)]
+          overflow-y-auto
+          rounded-2xl
+          bg-white dark:bg-zinc-900
+          border border-zinc-200/80 dark:border-zinc-700/80
+          p-6 shadow-2xl
+        "
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Cabeçalho */}
         <div className="flex items-center gap-4">
-          <img
-            src={foto}
-            alt={nome}
-            className="h-16 w-16 rounded-full object-cover bg-zinc-200 dark:bg-zinc-800"
-          />
+          {foto && (
+            <img
+              src={foto}
+              alt={nome}
+              className="h-16 w-16 rounded-full object-cover bg-zinc-200 dark:bg-zinc-800"
+            />
+          )}
           <div className="flex-1 min-w-0">
             <h2 className="text-xl font-semibold truncate">{nome}</h2>
             <p className="text-sm text-zinc-600 dark:text-zinc-300 truncate">
@@ -130,24 +195,30 @@ export default function Modal({ open, onClose, data }) {
           </div>
           <button
             onClick={onClose}
-            className="text-sm px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-800"
+            className="
+              text-sm px-3 py-1 rounded-lg
+              bg-zinc-100 text-zinc-700 border border-zinc-200
+              hover:bg-zinc-200
+              dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700
+              dark:hover:bg-zinc-700
+            "
           >
             Fechar
           </button>
         </div>
 
         {/* Conteúdo */}
-        <div className="mt-4 space-y-3 text-sm">
+        <div className="mt-4 space-y-4 text-sm">
           {resumo && (
             <section>
-              <h3 className="font-medium">Resumo</h3>
+              <h3 className="font-medium mb-1">Resumo</h3>
               <p className="text-zinc-700 dark:text-zinc-200">{resumo}</p>
             </section>
           )}
 
           {!!habilidadesTecnicas.length && (
             <section>
-              <h3 className="font-medium">Habilidades Técnicas</h3>
+              <h3 className="font-medium mb-1">Habilidades técnicas</h3>
               <div className="flex flex-wrap gap-2 mt-1">
                 {habilidadesTecnicas.map((t) => (
                   <span
@@ -163,14 +234,16 @@ export default function Modal({ open, onClose, data }) {
 
           {!!softSkills.length && (
             <section>
-              <h3 className="font-medium">Soft skills</h3>
-              <p>{softSkills.join(' • ')}</p>
+              <h3 className="font-medium mb-1">Soft skills</h3>
+              <p className="text-zinc-700 dark:text-zinc-200">
+                {softSkills.join(" · ")}
+              </p>
             </section>
           )}
 
           {!!experiencias.length && (
             <section>
-              <h3 className="font-medium">Experiências</h3>
+              <h3 className="font-medium mb-1">Experiências</h3>
               <ul className="list-disc pl-5 space-y-1">
                 {experiencias.map((e, i) => (
                   <li key={i}>
@@ -180,6 +253,114 @@ export default function Modal({ open, onClose, data }) {
               </ul>
             </section>
           )}
+
+          {/* Plano de aprendizado / reskilling */}
+          <section className="mt-2 border-t border-zinc-200 dark:border-zinc-800 pt-3">
+            <div className="flex items-center justify-between gap-3 mb-2">
+              <h3 className="font-medium">Plano de desenvolvimento com IA</h3>
+              <button
+                type="button"
+                onClick={handleGeneratePlan}
+                disabled={loadingPlan}
+                className="text-xs px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-60"
+              >
+                {loadingPlan ? "Gerando plano..." : "Gerar / atualizar plano"}
+              </button>
+            </div>
+
+            {plan && (
+              <div className="space-y-2">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                  Objetivo:{" "}
+                  <span className="font-medium">{plan.objetivo}</span> · Área
+                  alvo:{" "}
+                  <span className="font-medium">{plan.areaAlvo}</span> · Nível
+                  atual:{" "}
+                  <span className="font-medium capitalize">
+                    {plan.nivelAtual}
+                  </span>
+                </p>
+
+                {Array.isArray(plan.trilha) && plan.trilha.length > 0 && (
+                  <div className="space-y-2 mt-1">
+                    {plan.trilha.map((step) => {
+                      const stepId = step.id || step.titulo;
+                      const done = planProgress.includes(stepId);
+                      return (
+                        <label
+                          key={stepId}
+                          className="flex items-start gap-2 rounded-lg border border-zinc-200 dark:border-zinc-800 px-3 py-2 cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-800/60"
+                        >
+                          <input
+                            type="checkbox"
+                            className="mt-1"
+                            checked={done}
+                            onChange={() => toggleStep(stepId)}
+                          />
+                          <div>
+                            <div className="text-xs font-semibold">
+                              {step.titulo}{" "}
+                              {step.tipo && (
+                                <span className="ml-1 text-[11px] px-1.5 py-[1px] rounded-full bg-zinc-800 text-zinc-100">
+                                  {step.tipo}
+                                </span>
+                              )}
+                            </div>
+                            {step.foco && (
+                              <p className="text-xs text-zinc-600 dark:text-zinc-300">
+                                {step.foco}
+                              </p>
+                            )}
+                            {step.duracaoHoras != null && (
+                              <p className="text-[11px] text-zinc-500 mt-0.5">
+                                ~ {step.duracaoHoras}h previstas
+                              </p>
+                            )}
+                            {step.conteudo && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  toggleStepDetails(stepId);
+                                }}
+                                className="mt-1 text-[11px] text-blue-600 dark:text-blue-400 hover:underline"
+                              >
+                                {expandedStepId === stepId
+                                  ? "Esconder conteúdo"
+                                  : "Ver conteúdo"}
+                              </button>
+                            )}
+                            {expandedStepId === stepId && step.conteudo && (
+                              <p className="mt-1 text-xs text-zinc-700 dark:text-zinc-200 whitespace-pre-line">
+                                {step.conteudo}
+                              </p>
+                            )}
+                          </div>
+                        </label>
+                      );
+                    })}
+
+                    <p className="text-[11px] text-zinc-500">
+                      Progresso:{" "}
+                      {plan.trilha.length
+                        ? `${planProgress.length}/${plan.trilha.length} etapas concluídas`
+                        : "nenhuma etapa definida"}
+                    </p>
+                  </div>
+                )}
+
+                {Array.isArray(plan.observacoes) &&
+                  plan.observacoes.length > 0 && (
+                    <ul className="mt-1 text-[11px] text-zinc-500 list-disc pl-4 space-y-0.5">
+                      {plan.observacoes.map((obs, i) => (
+                        <li key={i}>{obs}</li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
+            )}
+          </section>
         </div>
 
         {/* Ações */}
@@ -187,15 +368,23 @@ export default function Modal({ open, onClose, data }) {
           <input
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
-            placeholder="Mensagem de recomendação…"
-            className="px-3 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-sm outline-none"
+            placeholder="Mensagem de recomendação..."
+            className="
+              px-3 py-2 rounded-xl text-sm outline-none
+              bg-zinc-100 dark:bg-zinc-800
+            "
           />
           <button
             onClick={handleRecommend}
             disabled={sending}
-            className="rounded-lg px-4 py-2 bg-blue-600 text-white disabled:opacity-60"
+            className="
+              rounded-lg px-4 py-2
+              bg-blue-600 text-white
+              hover:bg-blue-500
+              disabled:opacity-60
+            "
           >
-            {sending ? 'Enviando…' : 'Recomendar profissional'}
+            {sending ? "Enviando..." : "Recomendar profissional"}
           </button>
         </div>
 
@@ -216,5 +405,5 @@ export default function Modal({ open, onClose, data }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

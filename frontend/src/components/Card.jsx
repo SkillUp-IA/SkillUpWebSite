@@ -1,5 +1,3 @@
-// src/components/Card.jsx
-
 // helper para extrair a UF da localização ("Cidade - SP" -> "SP")
 function getUF(localizacao) {
   if (!localizacao) return "";
@@ -71,13 +69,13 @@ export default function Card({ profile, onOpen }) {
         rounded-2xl border border-slate-200/80 dark:border-slate-800
         bg-white/95 dark:bg-slate-900/90
         p-4 sm:p-5
-
-        transform-gpu will-change-transform
         transition-all duration-200 ease-out
-        hover:-translate-y-1 hover:scale-[1.02] hover:border-sky-300/90 dark:hover:border-sky-500/70
+        transform-gpu will-change-transform
+        hover:-translate-y-1 hover:scale-[1.02]
+        hover:bg-slate-50 hover:border-sky-300/90
+        dark:hover:bg-slate-900 dark:hover:border-sky-500/70
         hover:shadow-xl hover:shadow-sky-900/20
         active:scale-[0.99]
-
         focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
       "
     >
@@ -86,7 +84,11 @@ export default function Card({ profile, onOpen }) {
           <img
             src={foto}
             alt={nome}
-            className="h-14 w-14 rounded-full object-cover ring-2 ring-slate-200 dark:ring-slate-700 group-hover:ring-sky-400/80 transition-colors"
+            className="
+              h-14 w-14 rounded-full object-cover
+              ring-2 ring-slate-200 dark:ring-slate-700
+              group-hover:ring-sky-400/80 transition-colors
+            "
           />
         ) : (
           <div
@@ -159,6 +161,7 @@ export default function Card({ profile, onOpen }) {
               px-2 py-1 text-[11px] font-medium
               rounded-full
               bg-slate-900/80 text-slate-100
+              dark:bg-slate-800 dark:text-slate-50
               border border-slate-600
             "
           >

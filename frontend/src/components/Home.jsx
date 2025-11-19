@@ -1,15 +1,13 @@
-// src/components/Home.jsx
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import anime from "animejs";
 
 import Card from "./Card.jsx";
 import Modal from "./Modal.jsx";
-import AuthBar from "./AuthBar.jsx";
 import Brand from "./Brand.jsx";
 import { fetchProfiles, API_URL } from "../lib/api.js";
+import { useAuth } from "../context/AuthContext.jsx";
 
-/* ========= Constantes ========= */
 const ESTADOS_BRASIL = [
   { sigla: "AC", nome: "Acre" },
   { sigla: "AL", nome: "Alagoas" },
@@ -49,21 +47,19 @@ function getUF(localizacao) {
     .split("-")
     .map((p) => p.trim())
     .filter(Boolean);
-
   if (parts.length >= 2) {
     const last = parts[parts.length - 1];
     if (last.length === 2) return last.toUpperCase();
   }
-
   if (parts[0] && parts[0].length === 2) {
     return parts[0].toUpperCase();
   }
-
   return "";
 }
 
 export default function Home() {
   const location = useLocation();
+  const { isAuth, username, login, register, logout } = useAuth();
 
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -82,9 +78,14 @@ export default function Home() {
 
   const gridRef = useRef(null);
 
-  // ========= TEMA =========
+  // estado da barrinha de login rápido
+  const [authUser, setAuthUser] = useState("");
+  const [authPass, setAuthPass] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
+
+  // ======== Tema ========
   const getInitialTheme = () => {
-    if (typeof window === "undefined") return "light";
+    if (typeof window === "undefined") return "dark";
     const saved = localStorage.getItem("theme");
     if (saved === "dark" || saved === "light") return saved;
     return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -101,9 +102,42 @@ export default function Home() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  const toggleTheme = () =>
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
 
-  // Carrega dados
+  // ======== Auth bar handlers ========
+  async function handleQuickLogin() {
+    try {
+      setAuthLoading(true);
+      await login(authUser, authPass);
+      setAuthUser("");
+      setAuthPass("");
+    } catch (e) {
+      alert(e?.response?.data?.error || e?.message || "Falha ao entrar");
+    } finally {
+      setAuthLoading(false);
+    }
+  }
+
+  async function handleQuickRegister() {
+    try {
+      setAuthLoading(true);
+      await register(authUser, authPass);
+      setAuthUser("");
+      setAuthPass("");
+      alert("Usuário registrado! Você já pode entrar.");
+    } catch (e) {
+      alert(e?.response?.data?.error || e?.message || "Falha ao registrar");
+    } finally {
+      setAuthLoading(false);
+    }
+  }
+
+  function authKeyDown(e) {
+    if (e.key === "Enter") handleQuickLogin();
+  }
+
+  // ======== Carrega perfis ========
   useEffect(() => {
     (async () => {
       setErrMsg("");
@@ -137,7 +171,7 @@ export default function Home() {
     })();
   }, [location.search]);
 
-  // Lê recomendações do localStorage
+  // ======== Recomendações no localStorage ========
   function loadRecommendedFromStorage() {
     try {
       const raw = localStorage.getItem(RECO_STORAGE_KEY);
@@ -152,12 +186,11 @@ export default function Home() {
     }
   }
 
-  // Carrega uma vez ao montar
   useEffect(() => {
     loadRecommendedFromStorage();
   }, []);
 
-  // Animações
+  // ======== Animações ========
   useEffect(() => {
     anime({
       targets: "#topbar",
@@ -180,7 +213,7 @@ export default function Home() {
     });
   }, [data, q, estado, area, tech, recommendedOnly, recommendedIds]);
 
-  // Listas de filtros
+  // ======== Listas de filtro ========
   const areas = useMemo(
     () => ["Todos", ...new Set(data.map((p) => p.area).filter(Boolean))],
     [data]
@@ -191,7 +224,7 @@ export default function Home() {
     return ["Todos", ...new Set(all)];
   }, [data]);
 
-  // Busca + filtros
+  // ======== Filtro principal ========
   const filtrados = useMemo(() => {
     const s = q.trim().toLowerCase();
 
@@ -222,10 +255,8 @@ export default function Home() {
     return result;
   }, [data, q, estado, area, tech, recommendedOnly, recommendedIds]);
 
-  // Botão "Sugestões da IA" -> mostra/oculta apenas recomendados
   function handleToggleRecommended() {
     const list = loadRecommendedFromStorage();
-
     if (!list.length) {
       alert(
         "Você ainda não recomendou nenhum profissional.\nAbra um card, clique em 'Recomendar profissional' e depois volte aqui."
@@ -233,23 +264,38 @@ export default function Home() {
       setRecommendedOnly(false);
       return;
     }
-
     setRecommendedOnly((prev) => !prev);
   }
 
+  // ======== JSX ========
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-slate-950 to-sky-950 text-slate-50">
-      {/* TOPBAR / NAV */}
+    <div
+      className="
+        min-h-screen
+        bg-gradient-to-b
+        from-slate-50 via-slate-100 to-sky-50
+        text-slate-900
+        dark:from-slate-950 dark:via-slate-950 dark:to-slate-900
+        dark:text-slate-50
+      "
+    >
+      {/* TOPBAR */}
       <header
         id="topbar"
-        className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/80 backdrop-blur"
+        className="
+          sticky top-0 z-40
+          border-b border-slate-200
+          bg-white/80
+          backdrop-blur-md
+          dark:border-slate-800/80
+          dark:bg-slate-950/95
+        "
       >
         {/* Linha 1: logo + ações */}
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-4 pt-4 pb-3 flex items-center gap-4">
           <div className="flex items-center gap-3">
-            <Brand size={34} />
-            <div className="hidden sm:flex flex-col text-xs text-slate-400">
-              <span>Plataforma de talentos com IA</span>
+            <Brand size={40} subtitle="Plataforma inteligente de talentos" />
+            <div className="hidden sm:flex flex-col text-[11px] text-slate-500 dark:text-slate-400">
               <span>
                 Conecte profissionais, oportunidades e aprendizado contínuo.
               </span>
@@ -257,40 +303,183 @@ export default function Home() {
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/meu-plano"
+              className="
+                hidden sm:inline-flex
+                px-3 py-2 rounded-xl text-xs sm:text-sm font-medium
+                bg-emerald-500 text-slate-950 hover:bg-emerald-400
+                border border-emerald-400/80
+                transition
+              "
+            >
+              Meu plano
+            </Link>
+
             <button
               onClick={toggleTheme}
-              className="px-3 py-2 rounded-xl bg-slate-900/80 text-xs sm:text-sm text-slate-200 border border-slate-700 hover:bg-slate-800 transition"
+              className="
+                px-3 py-2 rounded-xl text-xs sm:text-sm font-medium
+                bg-slate-100 text-slate-800 border border-slate-300
+                hover:bg-slate-200
+                dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700
+                dark:hover:bg-slate-800
+                transition
+              "
             >
-              Tema {theme === "dark" ? "🌙" : "🌞"}
+              Tema {theme === "dark" ? "claro" : "escuro"}
             </button>
 
             <Link
               to="/auth"
-              className="px-3 py-2 rounded-xl bg-sky-500 text-xs sm:text-sm font-medium text-slate-950 hover:bg-sky-400 transition shadow-lg shadow-sky-500/30"
+              className="
+                px-3 py-2 rounded-xl text-xs sm:text-sm font-medium
+                bg-sky-500 text-slate-950 hover:bg-sky-400
+                shadow-lg shadow-sky-500/40
+                transition
+              "
             >
               Criar perfil
             </Link>
 
-            <AuthBar />
+            {/* Barra de auth embutida */}
+            {isAuth ? (
+              <div className="flex items-center gap-3 text-slate-900 dark:text-slate-100">
+                <span className="text-sm">
+                  Olá, <b>{username}</b>
+                </span>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="
+                    px-3 py-2 text-sm rounded-xl
+                    bg-slate-200 text-slate-900
+                    dark:bg-slate-800 dark:text-slate-100
+                    hover:opacity-90
+                  "
+                >
+                  Sair
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <label className="sr-only" htmlFor="authbar-user">
+                  Usuário
+                </label>
+                <input
+                  id="authbar-user"
+                  value={authUser}
+                  onChange={(e) => setAuthUser(e.target.value)}
+                  onKeyDown={authKeyDown}
+                  placeholder="usuário"
+                  className="
+                    px-3 py-2 text-sm rounded-xl
+                    bg-slate-900/90 border border-slate-700
+                    text-slate-50 placeholder:text-slate-400
+                    outline-none
+                    focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  "
+                  autoComplete="username"
+                />
+
+                <label className="sr-only" htmlFor="authbar-pass">
+                  Senha
+                </label>
+                <input
+                  id="authbar-pass"
+                  type="password"
+                  value={authPass}
+                  onChange={(e) => setAuthPass(e.target.value)}
+                  onKeyDown={authKeyDown}
+                  placeholder="senha"
+                  className="
+                    px-3 py-2 text-sm rounded-xl
+                    bg-slate-900/90 border border-slate-700
+                    text-slate-50 placeholder:text-slate-400
+                    outline-none
+                    focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  "
+                  autoComplete="current-password"
+                />
+
+                <button
+                  type="button"
+                  onClick={handleQuickLogin}
+                  disabled={authLoading}
+                  className="
+                    px-3 py-2 text-sm rounded-xl
+                    bg-emerald-500 text-slate-950
+                    hover:bg-emerald-400
+                    disabled:opacity-60
+                  "
+                  aria-label="Entrar"
+                >
+                  Entrar
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleQuickRegister}
+                  disabled={authLoading}
+                  className="
+                    px-3 py-2 text-sm rounded-xl
+                    bg-slate-800 text-slate-100
+                    hover:bg-slate-700
+                    disabled:opacity-60
+                  "
+                  aria-label="Registrar"
+                >
+                  Registrar
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Linha 2: texto + filtros organizados */}
-        <div className="max-w-6xl mx-auto px-4 pb-4 space-y-2">
-          <p className="text-[11px] sm:text-xs text-slate-400">
-            Use a busca e os filtros para encontrar o perfil ideal por nome,
-            estado, área ou tecnologia.
-          </p>
+        {/* Linha 2: hero + badges + filtros */}
+        <div className="max-w-6xl mx-auto px-4 pb-4 space-y-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-50">
+                Encontre o perfil certo para cada desafio
+              </h1>
+              <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Use a busca e os filtros para localizar talentos por nome, área,
+                estado ou tecnologia.
+              </p>
+            </div>
 
-          {/* Grid de filtros */}
+            <div className="flex gap-2 text-[11px]">
+              <div className="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200">
+                <span className="block text-[10px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Estados
+                </span>
+                <span>{ESTADOS_BRASIL.length}+ regiões mapeadas</span>
+              </div>
+              <div className="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-950/80 dark:text-slate-200">
+                <span className="block text-[10px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  IA
+                </span>
+                <span>Use recomendações para filtrar favoritos</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Filtros */}
           <div className="grid gap-2 sm:gap-3 md:grid-cols-12 items-center">
-            {/* Busca: ocupa mais colunas em telas maiores */}
+            {/* Busca */}
             <div className="md:col-span-5 lg:col-span-6">
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Buscar por nome, cargo ou tecnologia..."
-                className="w-full px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700 text-xs sm:text-sm outline-none placeholder:text-slate-500"
+                className="
+                  w-full px-3 py-2 rounded-xl text-xs sm:text-sm
+                  bg-slate-900 border border-slate-700
+                  text-slate-50 placeholder:text-slate-400
+                  focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  dark:bg-slate-900 dark:border-slate-700
+                "
               />
             </div>
 
@@ -299,7 +488,13 @@ export default function Home() {
               <select
                 value={estado}
                 onChange={(e) => setEstado(e.target.value)}
-                className="w-full px-2 py-2 text-xs sm:text-sm rounded-xl bg-slate-900/80 border border-slate-700"
+                className="
+                  w-full px-2 py-2 rounded-xl text-xs sm:text-sm
+                  bg-slate-900 border border-slate-700
+                  text-slate-50
+                  focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  dark:bg-slate-900 dark:border-slate-700
+                "
               >
                 <option value="Todos">Todos os estados</option>
                 {ESTADOS_BRASIL.map((uf) => (
@@ -315,7 +510,13 @@ export default function Home() {
               <select
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
-                className="w-full px-2 py-2 text-xs sm:text-sm rounded-xl bg-slate-900/80 border border-slate-700"
+                className="
+                  w-full px-2 py-2 rounded-xl text-xs sm:text-sm
+                  bg-slate-900 border border-slate-700
+                  text-slate-50
+                  focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  dark:bg-slate-900 dark:border-slate-700
+                "
               >
                 {areas.map((a) => (
                   <option key={a}>{a}</option>
@@ -328,7 +529,13 @@ export default function Home() {
               <select
                 value={tech}
                 onChange={(e) => setTech(e.target.value)}
-                className="w-full px-2 py-2 text-xs sm:text-sm rounded-xl bg-slate-900/80 border border-slate-700"
+                className="
+                  w-full px-2 py-2 rounded-xl text-xs sm:text-sm
+                  bg-slate-900 border border-slate-700
+                  text-slate-50
+                  focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                  dark:bg-slate-900 dark:border-slate-700
+                "
               >
                 {techs.map((t) => (
                   <option key={t}>{t}</option>
@@ -336,7 +543,7 @@ export default function Home() {
               </select>
             </div>
 
-            {/* Botão Sugestões da IA */}
+            {/* Botão IA */}
             <div className="md:col-span-12 lg:col-span-2 flex md:justify-end">
               <button
                 onClick={handleToggleRecommended}
@@ -353,10 +560,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* CONTEÚDO */}
+      {/* CONTEÚDO PRINCIPAL */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         {loading && (
-          <p className="text-center text-slate-300">Carregando perfis…</p>
+          <p className="text-center text-slate-400">Carregando perfis...</p>
         )}
 
         {!loading && errMsg && (
@@ -366,10 +573,10 @@ export default function Home() {
         {!loading && !errMsg && (
           <>
             <div className="mb-5 flex items-baseline justify-between gap-2">
-              <h1 className="text-xl sm:text-2xl font-semibold text-slate-50">
+              <h2 className="text-xl sm:text-2xl font-semibold">
                 Profissionais em destaque
-              </h1>
-              <p className="text-xs text-slate-400">
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 {filtrados.length} perfil
                 {filtrados.length === 1 ? "" : "s"} encontrado
                 {filtrados.length === 1 ? "" : "s"}.
@@ -377,20 +584,20 @@ export default function Home() {
             </div>
 
             {filtrados.length === 0 ? (
-              <div className="text-center text-slate-300 space-y-2">
+              <div className="text-center text-slate-500 dark:text-slate-300 space-y-2">
                 <p>Nenhum profissional encontrado para esses filtros.</p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-400 dark:text-slate-500">
                   Tente remover algum filtro ou buscar por outra tecnologia.
                 </p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-400 dark:text-slate-500">
                   Você também pode{" "}
                   <Link
                     to="/auth"
-                    className="text-sky-400 hover:underline font-medium"
+                    className="text-sky-500 hover:underline font-medium"
                   >
                     criar seu perfil
                   </Link>{" "}
-                  e ser o primeiro dessa região 😉
+                  e ser o primeiro dessa região.
                 </p>
               </div>
             ) : (

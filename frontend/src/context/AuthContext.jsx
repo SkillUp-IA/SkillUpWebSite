@@ -56,8 +56,8 @@ export function AuthProvider({ children }) {
       localStorage.setItem('username', user)
       setToken(logged.token)
       setUsername(user)
-      // cria perfil se fornecido
-      if (profile) await createProfile(profile)
+      // cria perfil se fornecido (garante que username acompanhe o card)
+      if (profile) await createProfile({ username: user, ...profile })
       return true
     } catch (err) {
       const msg = err?.response?.data?.error || err?.message || 'Erro ao registrar'

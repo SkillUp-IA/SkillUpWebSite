@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AuthPage from './pages/Auth.jsx';
-import RegisterPage from './pages/Register.jsx';
+import MeuPlanoPage from './pages/MeuPlano.jsx';
 
 export default function App() {
   return (
@@ -14,15 +14,22 @@ export default function App() {
       {/* Login / Criar conta */}
       <Route path="/auth" element={<AuthPage />} />
 
-      {/* Cadastro de perfil completo (pode ficar fora do ProtectedRoute, já que cria a conta) */}
-      <Route path="/register" element={<RegisterPage />} />
-
       {/* Lista de perfis (cards) protegida */}
       <Route
         path="/perfis"
         element={
           <ProtectedRoute>
             <Home />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Meu plano / dashboard de desenvolvimento */}
+      <Route
+        path="/meu-plano"
+        element={
+          <ProtectedRoute>
+            <MeuPlanoPage />
           </ProtectedRoute>
         }
       />
