@@ -136,4 +136,4 @@ Ao acessar a aplicação você será redirecionado para `/auth`.
 
 - Lorenzo Andolfatto Coque | RM:563385
 - Diogo Pelinson Duarte de Moraes | RM:563321
--
+- Pedro Henrique Caires da Silva | RM: 562344
