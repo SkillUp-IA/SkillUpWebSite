@@ -1,7 +1,7 @@
 // frontend/src/lib/api.js
 import axios from "axios";
 
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+export const API_URL = import.meta.env.VITE_API_URL;
 
 // Instância Axios com timeout e baseURL
 const api = axios.create({
@@ -278,6 +278,7 @@ export async function aiLearningPlan(profile) {
   }
   return buildLocalLearningPlan(profile);
 }
+
 /* ========= IA (Quiz / Simulado) ========= */
 export async function aiQuizBank(area) {
   try {
@@ -314,6 +315,14 @@ export async function uploadPhoto(file) {
   return data;
 }
 
+/* ========= MESSAGES ========= */
+// Salva mensagem em data/messages.json via rota /messages
+export async function sendMessage(payload) {
+  // payload: { toId, text, fromName?, fromContact? }
+  const { data } = await api.post("/messages", payload);
+  return data;
+}
+
 export default api;
 
 /* ========= RECOMMEND ========= */
@@ -325,4 +334,3 @@ export async function recommendProfile(payload) {
     return { items: [] };
   }
 }
-

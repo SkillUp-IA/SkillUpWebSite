@@ -13,6 +13,7 @@ import profileRoutes from "./routes/profile.routes.js";
 import aiRoutes from "./routes/ai.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
 import recommendRoutes from "./routes/recommend.routes.js";
+import messagesRoutes from "./routes/messages.routes.js";
 
 dotenv.config();
 
@@ -40,11 +41,12 @@ app.use("/", profileRoutes);
 app.use("/", aiRoutes);
 app.use("/", uploadRoutes);
 app.use("/", recommendRoutes);
+app.use("/", messagesRoutes);
 
 // 404
 app.use((req, res) => res.status(404).json({ error: "Rota não encontrada" }));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API on http://localhost:${PORT}`);
+  console.log(`API on`);
 });

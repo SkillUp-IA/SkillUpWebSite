@@ -5,6 +5,13 @@ Permite criar um card profissional completo, usar filtros avançados para buscar
 
 ---
 
+> [!IMPORTANT]
+> **VÍDEO DEMONSTRATIVO ABAIXO, POIS USAMOS A OPENAI API EM USO**
+
+   - [Video](https://youtu.be/5ie5-eYgNeQ?si=cgOhkP7oHzOjh3FE)
+
+---
+
 ## Tecnologias
 
 - **Frontend**: React + Vite + Tailwind CSS (modo claro/escuro)
@@ -13,38 +20,9 @@ Permite criar um card profissional completo, usar filtros avançados para buscar
 - **Autenticação**: JWT simples com armazenamento em JSON
 - **IA (opcional)**: OpenAI API (`gpt-4o-mini`) para sugestões, resumos e plano de estudos
 
----
-
-## Estrutura do projeto
-
-```text
-SkillUp-IA/
-├─ backend/          # API Express (auth, perfis, IA, upload)
-│  ├─ src/
-│  │  ├─ server.js
-│  │  ├─ routes/
-│  │  │  ├─ auth.routes.js
-│  │  │  ├─ profile.routes.js
-│  │  │  ├─ ai.routes.js
-│  │  │  ├─ upload.routes.js
-│  │  │  └─ recommend.routes.js
-│  └─ data/          # users.json, profiles.json, etc. (criados automaticamente)
-└─ frontend/         # SPA em React
-   ├─ src/
-   │  ├─ pages/      # Auth, MeuPlano, etc.
-   │  ├─ components/ # Home, Card, Modal, AuthBar, Brand...
-   │  └─ lib/api.js  # cliente Axios para a API
-   └─ public/
-```
 
 ---
 
-## Pré‑requisitos
-
-- **Node.js 18+** (recomendado)  
-- **npm** ou **pnpm/yarn** (exemplos abaixo usam `npm`)
-
----
 
 ## 1. Backend – API
 
@@ -67,7 +45,7 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx
 
 > O arquivo `.env` deve ficar dentro da pasta **`backend`**.
 
-### Rodando em desenvolvimento
+### Rodando 
 
 ```bash
 npm run dev
@@ -75,23 +53,6 @@ npm run dev
 
 Por padrão a API sobe em `http://localhost:3000`.
 
-### Endpoints principais
-
-Alguns endpoints úteis para teste rápido:
-
-| Método / Rota              | Descrição                                               |
-| -------------------------- | ------------------------------------------------------- |
-| `GET /health`              | Verifica se o backend está online                       |
-| `POST /register`           | Cria usuário (body: `{ username, password }`)          |
-| `POST /login`              | Autentica e retorna token JWT                          |
-| `GET /profiles`            | Lista perfis paginados (`page`, `pageSize`)            |
-| `POST /profiles`           | Cria novo perfil (card profissional)                   |
-| `GET /data/profiles.json`  | Retorna o arquivo estático com todos os perfis         |
-| `GET /ai/suggest`          | Sugere perfis por skills/área/cidade (se houver dados) |
-
-> Se o arquivo **`backend/data/profiles.json`** não existir, o backend cria automaticamente com um array vazio quando necessário.
-
----
 
 ## 2. Frontend – SPA em React
 
@@ -120,6 +81,13 @@ Ao acessar a aplicação você será redirecionado para `/auth`.
 
 ---
 
+## Testes
+
+### A fim de testes use o user
+
+- **user: Teste**
+- **senha: Teste123**
+---
 ## Fluxo de uso da aplicação
 
 1. **Cadastro / Login**
@@ -149,39 +117,6 @@ Ao acessar a aplicação você será redirecionado para `/auth`.
 
 ---
 
-## Deploy na Vercel
-
-A forma mais simples é:
-
-- **Backend** em um serviço Node (Render, Railway, Fly.io, etc.).  
-- **Frontend** na **Vercel**, apontando `VITE_API_URL` para a URL pública do backend.
-
-### 1. Publicar o backend
-
-Você pode usar qualquer serviço de hospedagem para Node.js que rode o comando `npm install` + `npm run dev`/`npm start`. Em geral:
-
-1. Crie um novo projeto a partir deste repositório (pasta `backend` como base).
-2. Configure as variáveis de ambiente do backend (as mesmas do `.env`):
-   - `PORT` (se necessário)
-   - `SECRET_KEY`
-   - `OPENAI_API_KEY` (opcional, mas necessário para todos os recursos de IA online).
-3. Depois do deploy, anote a URL pública, algo como `https://skillup-backend.onrender.com`.
-
-### 2. Publicar o frontend na Vercel
-
-1. No painel da Vercel, clique em **New Project** e importe este repositório.
-2. Em **Project Settings → Root Directory**, selecione **`frontend`**.
-3. Use as configurações padrão de build:
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Em **Environment Variables** da Vercel, defina:
-   - `VITE_API_URL=https://sua-url-do-backend.com`
-5. Faça o deploy. Após alguns minutos a Vercel fornecerá uma URL do tipo `https://skillup-ia.vercel.app`.
-
-> Dica: após o primeiro deploy, qualquer push para a branch configurada (por exemplo, `main` ou `dev`) dispara um novo build automático na Vercel.
-
----
-
 ## Notas sobre IA e fallbacks
 
 - Se **`OPENAI_API_KEY` não estiver configurada**, muitas rotas de IA usam **fallback local**:
@@ -197,12 +132,8 @@ Você pode usar qualquer serviço de hospedagem para Node.js que rode o comando 
 
 ---
 
-## Próximos passos / ideias
+## Integrantes
 
-- Trocar o armazenamento em JSON por um banco (PostgreSQL, MongoDB etc.).  
-- Adicionar paginação e busca server‑side mais avançadas.  
-- Criar área de admin para curadoria dos perfis.  
-- Internacionalização (PT/EN) e personalização de temas.
-
-Se quiser, posso te ajudar a montar os arquivos de configuração específicos para o provedor onde você for subir o backend (Render, Railway, etc.).
-
+- Lorenzo Andolfatto Coque | RM:563385
+- Diogo Pelinson Duarte de Moraes | RM:563321
+-

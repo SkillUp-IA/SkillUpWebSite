@@ -277,6 +277,7 @@ export default function Home() {
         text-slate-900
         dark:from-slate-950 dark:via-slate-950 dark:to-slate-900
         dark:text-slate-50
+        overflow-x-hidden
       "
     >
       {/* TOPBAR */}
@@ -292,7 +293,7 @@ export default function Home() {
         "
       >
         {/* Linha 1: logo + ações */}
-        <div className="max-w-6xl mx-auto px-4 pt-4 pb-3 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-4 pt-4 pb-3 flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3">
             <Brand size={40} subtitle="Plataforma inteligente de talentos" />
             <div className="hidden sm:flex flex-col text-[11px] text-slate-500 dark:text-slate-400">
@@ -302,11 +303,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <div className="w-full sm:w-auto sm:ml-auto flex flex-wrap items-center justify-end gap-2 sm:gap-3">
             <Link
               to="/meu-plano"
               className="
-                hidden sm:inline-flex
+                inline-flex items-center justify-center
                 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium
                 bg-emerald-500 text-slate-950 hover:bg-emerald-400
                 border border-emerald-400/80
@@ -344,25 +345,25 @@ export default function Home() {
 
             {/* Barra de auth embutida */}
             {isAuth ? (
-              <div className="flex items-center gap-3 text-slate-900 dark:text-slate-100">
-                <span className="text-sm">
+              <div className="flex items-center gap-2 sm:gap-3 text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
+                <span>
                   Olá, <b>{username}</b>
                 </span>
                 <button
                   type="button"
                   onClick={logout}
                   className="
-                    px-3 py-2 text-sm rounded-xl
-                    bg-slate-200 text-slate-900
-                    dark:bg-slate-800 dark:text-slate-100
-                    hover:opacity-90
+                      px-3 py-2 text-xs sm:text-sm rounded-xl
+                      bg-slate-200 text-slate-900
+                      dark:bg-slate-800 dark:text-slate-100
+                      hover:opacity-90
                   "
                 >
                   Sair
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="w-full sm:w-auto flex flex-wrap items-center gap-2 justify-end">
                 <label className="sr-only" htmlFor="authbar-user">
                   Usuário
                 </label>
@@ -373,11 +374,12 @@ export default function Home() {
                   onKeyDown={authKeyDown}
                   placeholder="usuário"
                   className="
-                    px-3 py-2 text-sm rounded-xl
+                    px-3 py-2 text-xs sm:text-sm rounded-xl
                     bg-slate-900/90 border border-slate-700
                     text-slate-50 placeholder:text-slate-400
                     outline-none
                     focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                    w-[44%] sm:w-auto min-w-[100px] max-w-[140px]
                   "
                   autoComplete="username"
                 />
@@ -393,11 +395,12 @@ export default function Home() {
                   onKeyDown={authKeyDown}
                   placeholder="senha"
                   className="
-                    px-3 py-2 text-sm rounded-xl
+                    px-3 py-2 text-xs sm:text-sm rounded-xl
                     bg-slate-900/90 border border-slate-700
                     text-slate-50 placeholder:text-slate-400
                     outline-none
                     focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                    w-[44%] sm:w-auto min-w-[100px] max-w-[140px]
                   "
                   autoComplete="current-password"
                 />
@@ -407,7 +410,7 @@ export default function Home() {
                   onClick={handleQuickLogin}
                   disabled={authLoading}
                   className="
-                    px-3 py-2 text-sm rounded-xl
+                    px-3 py-2 text-xs sm:text-sm rounded-xl
                     bg-emerald-500 text-slate-950
                     hover:bg-emerald-400
                     disabled:opacity-60
@@ -422,7 +425,7 @@ export default function Home() {
                   onClick={handleQuickRegister}
                   disabled={authLoading}
                   className="
-                    px-3 py-2 text-sm rounded-xl
+                    px-3 py-2 text-xs sm:text-sm rounded-xl
                     bg-slate-800 text-slate-100
                     hover:bg-slate-700
                     disabled:opacity-60

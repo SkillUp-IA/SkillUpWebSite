@@ -3,12 +3,13 @@ import { Router } from "express";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { verifyToken } from '../middlewares/auth.js';
 
 const router = Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 👉 Sempre usar backend/data (um nível acima de src/)
+
 const dataDir = path.join(__dirname, "../../data");
 const filePath = path.join(dataDir, "profiles.json");
 
@@ -64,7 +65,7 @@ router.get("/profiles/__validate", (_req, res) => {
 
 /* ======= LISTA PAGINADA ======= */
 // GET /profiles?page=1&pageSize=60
-router.get("/profiles", (req, res) => {
+router.get("/profiles", verifyToken, (req, res) => {
   const page = Number(req.query.page || 1);
   const pageSize = Number(req.query.pageSize || 60);
 

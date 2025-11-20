@@ -32,7 +32,7 @@ function scoreProfile(p, skillsWanted, areaWanted, cityWanted) {
 }
 
 // GET /ai/suggest?skills=React,Node.js&area=Desenvolvimento&city=São%20Paulo%20-%20SP&k=6
-router.get("/ai/suggest", async (req, res) => {
+router.post("/ai/suggest", async (req, res) => {
   try {
     const k = Number(req.query.k) || 6;
     const area = req.query.area || "";

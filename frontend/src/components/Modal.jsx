@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import anime from "animejs";
-import { aiLearningPlan, recommendProfile } from "../lib/api.js";
+import { aiLearningPlan, recommendProfile, sendMessage } from "../lib/api.js";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const RECO_STORAGE_KEY = "skillup_recomendados";
@@ -10,7 +10,8 @@ export default function Modal({ open, onClose, data }) {
 
   const { username } = useAuth();
   const [msg, setMsg] = useState("Curti seu perfil! Vamos conectar?");
-  const [sending, setSending] = useState(false);
+  const [sending, setSending] = useState(false);          // recomendar
+  const [sendingMessage, setSendingMessage] = useState(false); // enviar mensagem
   const [isRecommended, setIsRecommended] = useState(false);
   const [plan, setPlan] = useState(null);
   const [loadingPlan, setLoadingPlan] = useState(false);
@@ -156,6 +157,32 @@ export default function Modal({ open, onClose, data }) {
     setExpandedStepId((prev) => (prev === stepId ? null : stepId));
   }
 
+  // Envio de mensagem que salva em data/messages.json
+  async function handleSendMessage() {
+    const text = msg.trim();
+    if (!text) {
+      return alert("Digite uma mensagem antes de enviar.");
+    }
+
+    try {
+      setSendingMessage(true);
+      await sendMessage({
+        toId: id,
+        text,
+        fromName: username || "guest",
+        fromContact: null, // se quiser depois pode enviar e-mail / linkedin aqui
+      });
+      alert("Mensagem enviada com sucesso!");
+      // se quiser limpar o campo depois:
+      // setMsg("");
+    } catch (e) {
+      console.error(e);
+      alert(e?.message || "Erro ao enviar mensagem.");
+    } finally {
+      setSendingMessage(false);
+    }
+  }
+
   return (
     <div
       className="
@@ -168,14 +195,14 @@ export default function Modal({ open, onClose, data }) {
     >
       <div
         className="
-          max-w-2xl w-full
-          max-h-[calc(100vh-32px)]
+          w-full max-w-lg sm:max-w-2xl
+          max-h-[calc(100vh-40px)]
           overflow-y-auto
           rounded-2xl
           bg-white dark:bg-zinc-900
           border border-zinc-200/80 dark:border-zinc-700/80
-          p-6 shadow-2xl
-        "
+          p-4 sm:p-6 shadow-2xl
+          "
         onClick={(e) => e.stopPropagation()}
       >
         {/* Cabeçalho */}
@@ -364,17 +391,33 @@ export default function Modal({ open, onClose, data }) {
         </div>
 
         {/* Ações */}
-        <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto]">
+        <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto_auto]">
           <input
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
-            placeholder="Mensagem de recomendação..."
+            placeholder="Mensagem de recomendação / contato..."
             className="
               px-3 py-2 rounded-xl text-sm outline-none
               bg-zinc-100 dark:bg-zinc-800
             "
           />
+
           <button
+            type="button"
+            onClick={handleSendMessage}
+            disabled={sendingMessage}
+            className="
+              rounded-lg px-4 py-2
+              bg-zinc-800 text-white
+              hover:bg-zinc-700
+              disabled:opacity-60
+            "
+          >
+            {sendingMessage ? "Enviando..." : "Enviar mensagem"}
+          </button>
+
+          <button
+            type="button"
             onClick={handleRecommend}
             disabled={sending}
             className="

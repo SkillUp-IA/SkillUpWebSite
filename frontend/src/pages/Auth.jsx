@@ -288,45 +288,46 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Fundo gradiente simples para nao ter problemas de encoding */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-950 to-sky-950" />
+  <div className="min-h-screen relative overflow-x-hidden">
+    {/* Fundo gradiente */}
+    <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-950 to-sky-950" />
 
-      <div className="relative z-10 grid place-items-center px-4 py-12">
-        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
-          {/* Lado esquerdo com logo / texto de apoio */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="text-left max-w-md">
-              <Brand size={64} />
-              <h1 className="mt-6 text-3xl lg:text-4xl font-semibold text-white">
-                Conecte talentos e crie seu card profissional.
-              </h1>
-              <p className="mt-4 text-sm text-slate-200">
-                Use esta tela para entrar rapidamente ou criar sua conta com um
-                card completo que sera exibido na Home junto com outros perfis.
+    <div className="relative z-10 flex justify-center px-4 py-10 sm:py-12">
+      <div className="w-full max-w-6xl flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-center">
+        {/* Lado esquerdo: agora aparece no mobile também */}
+        <div className="flex items-center justify-center text-center lg:text-left">
+          <div className="max-w-md">
+            <Brand size={64} />
+            <h1 className="mt-6 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white">
+              Conecte talentos e crie seu card profissional.
+            </h1>
+            <p className="mt-4 text-sm text-slate-200">
+              Use esta tela para entrar rapidamente ou criar sua conta com um
+              card completo que sera exibido na Home junto com outros perfis.
+            </p>
+            <ul className="mt-4 space-y-1 text-sm text-slate-200">
+              <li>- Aba "Ja tenho conta": login simples.</li>
+              <li>- Aba "Criar conta + card": cadastro completo.</li>
+              <li>
+                - Depois, a SkillUp IA usa seu card para montar planos de estudo.
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* Lado direito: card de login/cadastro */}
+        <div className="rounded-2xl border border-slate-800 bg-slate-950/80 backdrop-blur shadow-xl shadow-slate-950/40 p-5 sm:p-6">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-50">
+                {tab === "login" ? "Entrar" : "Criar conta e card"}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {tab === "login"
+                  ? "Acesse sua conta com usuario e senha."
+                  : "Crie sua conta e ja deixe o card pronto para aparecer na lista."}
               </p>
-              <ul className="mt-4 space-y-1 text-sm text-slate-200">
-                <li>- Aba "Ja tenho conta": login simples.</li>
-                <li>- Aba "Criar conta + card": cadastro completo.</li>
-                <li>- Depois, a SkillUp IA usa seu card para montar planos de estudo.</li>
-              </ul>
             </div>
           </div>
-
-          {/* Lado direito com abas login / cadastro */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-950/80 backdrop-blur shadow-xl shadow-slate-950/40 p-5 sm:p-6">
-            <div className="flex items-center justify-between gap-3 mb-4">
-              <div>
-                <h2 className="text-lg font-semibold text-slate-50">
-                  {tab === "login" ? "Entrar" : "Criar conta e card"}
-                </h2>
-                <p className="text-xs text-slate-400">
-                  {tab === "login"
-                    ? "Acesse sua conta com usuario e senha."
-                    : "Crie sua conta e ja deixe o card pronto para aparecer na lista."}
-                </p>
-              </div>
-            </div>
 
             <div className="inline-flex rounded-full border border-slate-700 bg-slate-900 p-1 text-xs mb-4">
               <button
@@ -353,7 +354,7 @@ export default function AuthPage() {
               </button>
             </div>
 
-            <div className="max-h-[70vh] overflow-y-auto pr-1">
+            <div className="max-h-none sm:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
               {tab === "login" ? (
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
